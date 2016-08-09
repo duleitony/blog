@@ -1,131 +1,315 @@
-# blog
-中国究竟有多少银行和银行人
+#Hux Blog
 
-近期，银监会发布《中国银行业监督管理委员会2015年报》，数据显示：截至 2015 年底，我国银行业金融机构共有法人机构 4,262 家，从业人员 380 万人。
+###[View Live Hux Blog &rarr;](http://huxpro.github.io)
 
-一、中国究竟有多少银行？
-
-
-（数据来源：银监会2015年年报）
-
-截至 2015 年底，我国银行业金融机构包括 3 家政策性银行、5 家大型商业银行、12 家股份制商业银行、133 家城市商业银行、5 家民营银行、859 家农村商业银行、71 家农村合作银行、1373家农村信用社、1 家邮政储蓄银行、1 家中德住房储蓄银行、1311 家村镇银行、48 家农村资金互助社，等等。
- 
-具体而言，以下列举一些主要的银行：
- 
-3家政策性银行
-
- 
-
-政策性银行，即由政府创立、参股或保证，不以营利为目的，专门为贯彻、配合政府社会经济政策或意图，在特定的业务领域内，直接或间接地从事政策性融资活动的机构。
- 
-5家国有大型商业银行
-
-5家国有大型商业银行
-工商银行
-建设银行
-中国银行
-农业银行
-交通银行
-
-国有商业银行是指由国家（财政部、中央汇金公司）直接管控的商业银行。虽然数量不多，但是体量盘大，占到中国银行业总盘子的40%左右，可谓银行业的“定海神针”。
- 
-其中，交通银行相对体量较小，总资产在7万亿左右，相当于工商银行的三分之一左右，近年来被股份行“领头羊”招商银行等追赶的厉害，2015年招商银行营业收入一度超越国有大行中的交通银行。
- 
-12家全国性股份制商业银行
-
- 
-
-133 家城市商业银行
-
-包括北京银行、宁波银行、南京银行、江苏银行（这4家已经在A股上市）等。
- 
-20世纪90年代中期，中央以城市信用社为基础，组建城市商业银行，是中央金融主管部门整肃城市信用社、化解地方金融风险的产物。目前，不少城商行的总资产规模都超过了1万亿，超越了全国性股份行中的华夏银行等。
- 
-自2007年北京银行、宁波银行、南京银行上市之后，股市起起伏伏近十年，直到2016年才有江苏银行实现上市。这中间，不少银行都选择了在港股上市，2015年以来不少城商行纷纷选择A股上市，目前上海银行、贵阳银行等甚至都提前有了A股股票代码，上市指日可待。
-
-5 家民营银行
-
-
-5家民营银行
-前海微众银行
-天津金城银行
-温州民商银行
-浙江网商银行
-上海华瑞银行
-
-此外，2016年来又有多家民营银行获批。
- 
-民营银行被寄予厚望，特别是希望其能支持中国广大的民营中小企业，但是目前受限于各方面的条件，民营银行并不算顺利，暂时在市场上影响较小。
- 
-859 家农村商业银行
-
-重庆农村商业银行、成都农商银行、北京农商银行、上海农村银行、广州农商银行等总资产规模已经在5000-8000亿规模区间。
- 
-同时，青岛农商行与青岛银行、东莞农商行与东莞银行、广州农商行与广州银行等都是农商银行总规模超越当地城商行的案例。
- 
-此外，2016年，江阴农商行成为了第一家登陆A股的农商行，创造历史！
-
-
-二、中国有多少银行从业人员？
+![](http://huangxuan.me/img/blog-desktop.jpg)
 
 
 
-（数据来源：银监会2015年年报）
+## Boilerplate (beta)
 
-由上图可以看出，大型商业银行（工农中建交）的从业人员数最多，有173万人，占了全部银行业从业人员的45.5%。
- 
-农村信用社和农村商业银行的机构数最多，共有2232家，从业人员约83万。
- 
-近两年民营银行声势浩大，迄今已有5 家民营银行，但是发展缓慢，从业人员只有1562人，民营银行从业人员数较少。
- 
+Want to clone a boilerplate instead of my buzz blog? Here comes this!  
 
-三、商业银行排行榜
+```
+$ git clone git@github.com:Huxpro/huxblog-boilerplate.git
+```
 
-
-近日，中国银行业协会发布《中国银行业发展报告（2016）》，显示2015年，商业银行全年累计实现净利润15926亿元，同比增长2.4%，增速较2014年下降7.2个百分点。
- 
-1、2016年中国银行业前10名（以核心一级资本净额排序）
-
-2016中国商业银行排行榜
-排名
-名称
-1
-工商银行
-2
-建设银行
-3
-中国银行
-4
-农业银行
-5
-交通银行
-6
-招商银行
-7
-中信银行
-8
-中国民生银行
-9
-兴业银行
-10
-浦发银行
-（数据来源：中国银行业协会）
-
-2、2015年中国赚钱最多的银行TOP10
+**[View Boilerplate Here &rarr;](http://huangxuan.me/huxblog-boilerplate/)**
 
 
-(数据来源：中商产业研究院)
+## Porting 
 
-3、2015中国城市商业银行TOP10
+- [**Hexo**](https://github.com/Kaijun/hexo-theme-huxblog) by @kaijun
+- [**React-SSR**](https://github.com/LucasIcarus/huxpro.github.io/tree/ssr) by @LucasIcarus
+
+## Translation
+
+ - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: 感谢 [@BrucZhaoR](https://github.com/BruceZhaoR) 的 [中文翻译 &rarr;](https://github.com/Huxpro/huxpro.github.io/blob/master/README.zh.md)
+
+## Features
+
+##### New Feature (V1.5.2)
+
+- Annoyed to delete my blog post after clone or pull? **Boilerplate** comes to help you get started quickly and easily merge update.
+- `-apple-system` is added in font rule, which display beautiful new font **San Francisco** in iOS 9 by default.
+- Fixed [issue#15](https://github.com/Huxpro/huxpro.github.io/issues/15) about code wrap.
+
+##### New Feature (V1.5.1)
+
+- **[Comment](#comment)** support [**Disqus**](http://disqus.com) officially, thanks to @rpsh.
+
+##### New Feature (V1.5)
+
+- **[Comment](#comment)** and **[Analytics](#analytics)** is configurable now! We also add **Google Analytics support** and drop tencents. Both documents is updated.
+
+##### New Feature (V1.4)
+
+- **[Featured Tags](#featured-tags)** is now independent of [SideBar](#sidebar). Both documents is updated.
+- New **[SEO Title](#seo-title)** for SEO usage which is differ from the site title
+
+##### New Feature (V1.3.1)
+
+- Support **PingFang (苹方)**, the new Chinese font presented by [OS X El Capitan](http://www.apple.com/cn/osx/whats-new/)
 
 
- (数据来源：互联网周刊)
+##### New Feature (V1.3)
 
-4、上市银行薪酬排名
+- Big Improvement to the **Navigation Menu** *(especially in Android)*:  Dropping the old, stuttering, low-performance [Bootstrap collapse.js](http://getbootstrap.com/javascript/#collapse),  replaced with an own wrote, [jank free](http://jankfree.org/) navbar menu in a pretty high-performance implementation of [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html).
 
-在A股上市的股份制银行中，有16家披露了2015年员工薪酬数据，其中员工薪酬最高的是平安银行，为47万元。
-
-2015上市银行薪酬排行
+<img src="http://huangxuan.me/img/blog-md-navbar.gif" width="320" />
 
 
-（数据来源：choice金融数据）
+##### New Feature (V1.2)
+
+- Brand new **[Keynote Layout](#keynote-layout)** is provided for easily posting beautiful HTML presentations you have created with this blog
+
+
+##### New Feature (V1.1)
+
+- We now support a clean and gorgeous **[SideBar](#sidebar)** for displaying more info
+- **[Friends](#friends)** is also added as a common feature of blog help you do SEO
+
+##### V1.0
+
+- Full-feature **Tag** support
+- **Mobile first** user experience optimization
+- **Typographic optimization** for Chinese Fonts
+- **Network optimizaition** for China, dropping Google webfont, using local CDN
+- Using [Github Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)
+- Using Baidu, Tencent/QQ analytics
+- Using [DuoShuo](http://duoshuo.com/) as the Disqus-like third party discussion system
+
+
+## Support
+
+- **Feel free to fork. I'll Appreciate it if you keep the Author & Github link at footer**
+- Give it a **Star** if you like, fork or just clone to use ;)
+- If any problem or requirement, just open an issue here and I will help you.
+
+
+## Document
+
+* Get Started
+	* [Environment](#environment)
+	* [Get Started](#get-started)
+	* [Write Posts](#write-posts)
+* Components
+	* [SideBar](#sidebar)
+	* [Mini About Me](#mini-about-me)
+	* [Featured Tags](#featured-tags)
+	* [Friends](#friends)
+	* [Keynote Layout](#keynote-layout)
+* Comment & Analysis
+	* [Comment](#comment)
+	* [Analytics](#analytics)
+* Advanced
+	* [Customization](#customization)
+	* [Header Image](#header-image)
+	* [SEO Title](#seo-title)
+	* [Page Build Warning](#page-build-warning)
+
+#### Environment
+
+If you have jekyll installed, simply run `jekyll serve` in Command Line
+and preview the themes in your browser. You can use `jekyll serve --watch` to watch for changes in the source files as well.
+
+
+#### Get Started
+
+You can easily get started by modifying `_config.yml`:
+
+```
+# Site settings
+title: Hux Blog             # title of your website
+SEOTitle: Hux Blog			# check out docs for more detail
+description: "Cool Blog"    # ...
+
+# SNS settings      
+github_username: huxpro     # modify this account to yours
+weibo_username: huxpro      # the footer woule be auto-updated.
+
+# Build settings
+# paginate: 10              # nums of posts in one page
+```
+
+There are more options you can check out in the [Jekyll - Official Site](http://jekyllrb.com/), or you can directly dive into code to find more.
+
+
+#### Write Posts
+
+Feel free to checkout Markdown files in the `_posts/`, you will quickly realized how to post your articles with magical markdown plus this nice theme.
+
+The **front-matter** of a post looks like that:
+
+```
+---
+layout:     post
+title:      "Hello 2015"
+subtitle:   "Hello World, Hello Blog"
+date:       2015-01-29 12:00:00
+author:     "Hux"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - Life
+---
+
+```
+
+#### SideBar
+
+![](http://huangxuan.me/img/blog-sidebar.jpg)
+
+Seeing more information may be necessary for you to display, from V1.1, a clean, gorgeous **SideBar** is added for you, which provide more area for displaying possible modules. You can enable *(it is default enable)* this feature by simply config:
+
+```
+# Sidebar settings
+sidebar: true
+sidebar-about-description: "your description here"
+sidebar-avatar: /img/avatar-hux.jpg     # use absolute URL.
+```
+
+We default support *[Featured Tags](#featured-tags)*, *[Mini About Me](#mini-about-me)* and *[Friends](#friends)* these three modules and you can add your own. The sidebar is naturally responsive and would be push to bottom in a small screen size (`<= 992px`, according to [Bootstarp Grid System](http://getbootstrap.com/css/#grid))  
+More details of these three separate modules are talking below.
+
+#### Mini About Me
+
+Mini-About-Me module display all your SNS buttons also your avatar and the description if you set `sidebar-avatar` and `sidebar-about-description` which is very useful and common for a sidebar so it is default with your sidebar.
+
+It is really nice-looking and well-designed. It would be hidden in a small screen seeing the sidebar would be push to bottom and there is already a footer including SNS feature which is similar.
+
+#### Featured Tags
+
+Considering the Featured-Tags feature in [Medium](http://medium.com) is pretty cool, so I add it in my blog theme also.   
+This module is independent of sidebar from V1.4, so it can definitely live without enable sidebar, which would be displayed in the bottom when `sidebar` set to false, and it is not only displayed in home page but also every post page bottom.
+
+
+```
+# Featured Tags
+featured-tags: true  
+featured-condition-size: 1     # A tag will be featured if the size of it is more than this condition value
+```
+
+The only one thing need to be paid attention to is the `featured-condition-size`: A tag will be featured if the size of it is more than this condition value.  
+Internally, a condition template `{% if tag[1].size > {{site.featured-condition-size}} %}` is used to do the filter.
+
+#### Friends
+
+Friends is a very common feature of a blog seeing the SEO, so I add it in V1.1 release to help that.   
+Friends can also live without enable sidebar, also be displayed in the bottom when sidebar unable, and be displayed in every post page bottom.
+
+
+You can just add your friends information in `_config.yml` with a familiar JSON syntax and everything is done, very easy:
+
+```
+# Friends
+friends: [
+    {
+        title: "Foo Blog",
+        href: "http://foo.github.io/"
+    },
+    {
+        title: "Bar Blog",
+        href: "http://bar.github.io"
+    }
+]
+```
+
+
+#### Keynote Layout
+
+![](http://huangxuan.me/img/blog-keynote.jpg)
+
+There is a increasing tendency to use Open Web technology to create keynotes, presentations, like Reveal.js, Impress.js, Slides, Prezi etc. I consider a modern blog should have abilities to post these HTML based presentation easily also abilities to play it directly.
+
+Under the hood, a `iframe` is used to include webpage from outer source, so the only things left is to give a url in the **front-matter**:
+
+```
+---
+layout:     keynote
+iframe:     "http://huangxuan.me/js-module-7day/"
+---
+```
+
+The iframe will be automatically resized to adapt different form factors also the device orientation. A padding is left to imply user that there has more content below, also to ensure that there is a area for user to scroll down in mobile device seeing most of the keynote framework prevent the browser default scroll behavior.
+
+
+#### Comment
+
+This theme support both [Disqus](http://disqus.com) and [Duoshuo](http://duoshuo.com) as the third party discussion system.
+
+First, you need to sign up and get your own account. **Repeat, DO NOT use mine!** (I have set Trusted Domains) It is deathly simple to sign up and you will get the full power of management system. Please give it a try!
+
+Second, from V1.5, you can easily complete your comment configuration by just adding your **short name** into `_config.yml`:
+
+```
+duoshuo_username: _your_duoshuo_short_name_
+# OR
+disqus_username: _your_disqus_short_name_
+```
+
+**To the old version user**, it's better that you pull the new version, otherwise you have to replace code in `post.html`, `keynote.html` and `about.html` by yourselves.
+
+Furthermore, Duoshuo support Sharing. if you only wanna use Duoshuo comment without sharing, you can set `duoshuo_share: false`. You can use Duoshuo Sharing and Disqus Comments together also.
+
+
+
+#### Analytics
+
+From V1.5, we support Google Analytics and Baidu Tongji officially with a deathly simple config:
+
+```
+# Baidu Analytics
+ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
+
+# Google Analytics
+ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+ga_domain: huangxuan.me
+```
+
+Just checkout the code offered by Google/Baidu, and copy paste here, all the rest is already done for you.
+
+
+
+#### Customization
+
+If you wanna do more customization and change code yourself, a [Grunt](gruntjs.com) environment is also included. (Thanks to Clean Blog.)
+
+There are a number of tasks it performs like minification of the JavaScript, compiling of the LESS files, adding banners to keep the Apache 2.0 license intact, and watching for changes. Run the grunt default task by entering `grunt ` into your command line which will build the files. You can use `grunt watch` if you are working on the JavaScript or the LESS.
+
+**Try to understand code in `_include/` and `_layouts/`, then you can modify Jekyll [Liquid](https://github.com/Shopify/liquid/wiki) template directly to do more creative customization.**
+
+
+#### Header Image
+
+Change header images of any pages or any posts is pretty easy as mentioned above. But, thanks to [issue #6 (in Chinese)](https://github.com/Huxpro/huxpro.github.io/issues/6) asked, **how to make it looks great?**
+
+**Well...it is actually a design issue**, not a coding stuff. It is better that you have basic design knowledge, but not is ok, let me told you how to make it well-designed:
+
+Seeing the title text above image is **white**, the image should be **dark** to emphasize the contract. so we can easily add a **black overlay with fews of opacity**, which is depends on the brightness of the original images you used. you can process it in Photoshop, Sketch etc.
+
+In technical views, it can be done with CSS. However, the opacity of the black overlay is really hard to assigned, **every image has different brightness so the  degree it should be adjusted is different so it is impossible to hard code it.**
+
+
+#### SEO Title
+
+Before V1.4, site setting `title` is not only used for displayed in Home Page and Navbar, but also used to generate the `<title>` in HTML.
+It's possible that you want the two things different. For me, my site-title is **“Hux Blog”** but I want the title shows in search engine is **“黄玄的博客 | Hux Blog”** which is multi-language.
+
+So, the SEO Title is introduced to solve this problem, you can set `SEOTitle` different from `title`, and it would be only used to generate HTML `<title>` and setting DuoShuo Sharing.
+
+#### Page Build Warning
+
+There are many possible reasons to cause a "Page Build Warning" email or similar error.
+
+One of these is that github changes its build environment.
+
+> You are attempting to use the 'pygments' highlighter, which is currently unsupported on GitHub Pages. Your site will use 'rouge' for highlighting instead. To suppress this warning, change the 'highlighter' value to 'rouge' in your '_config.yml'.
+
+So, just edit `_config.yml`, find `highlighter: pygments`, change it to `highlighter: rouge` and the warning will be gone.
+
+For other circumstance, check out existing issues or create a new one!
+
+## Thanks
+
+This theme is forked from [IronSummitMedia/startbootstrap-clean-blog-jekyll](https://github.com/IronSummitMedia/startbootstrap-clean-blog-jekyll)  
+Thanks Jekyll and Github Pages!
