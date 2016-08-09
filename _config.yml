@@ -1,22 +1,22 @@
 # Site settings
-title: Hux Blog
-SEOTitle: 黄玄的博客 | Hux Blog
+title: 凤凰牌老熊
+SEOTitle: 凤凰牌老熊的博客 | Shamphone Blog
 header-img: img/home-bg.jpg
-email: huxpro@gmail.com
-description: "关于前端与设计、黑客与画家 | 黄玄，Web & Mobile Lover，Front-End Engineer，UX Designer | 这里是 @Hux黄玄 的个人博客，与你一起发现更大的世界。"
-keyword: "黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, 肖玉, Lynn, 肖玉的男朋友"
-url: "http://huangxuan.me"              # your host, for absolute URL
+email: shamphone@gmail.com
+description: "Java开发、软件架构、大数据、FinTech、互联网金融，知行合一。"
+keyword: "Java开发，软件架构，大数据，FinTech，互联网金融，知行合一"
+url: "http://blog.lixf.cn"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
 # SNS settings
 RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
-#twitter_username:  huxpro
-facebook_username:  huxpro
+weibo_username:     shamphone
+zhihu_username:     shamphone
+github_username:    shamphone
+#twitter_username:  shamphone
+facebook_username:  shamphone
 # linkedin_username:  firstname-lastname-idxxxx
 
 
