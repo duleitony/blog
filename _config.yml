@@ -60,9 +60,9 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 4cc1f2d8f3067386cc5cdb626a782900
+ba_track_id: 7590b8f08665741fdf5a4d378feccaaf
 # Google Analytics
-ga_track_id: 'UA-49327216-1'            # Format: UA-xxxxxx-xx
+# ga_track_id: 'UA-82322518-1'            # Format: UA-xxxxxx-xx
 ga_domain: blog.lixf.cn
 
 
