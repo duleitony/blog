@@ -2,7 +2,7 @@
 layout:     post
 title:      "Hello 2016"
 subtitle:   " \"Hello World, Hello Blog\""
-date:       2016-08-11 12:00:00
+date:       2016-08-01 12:00:00
 author:     "shamphone"
 header-img: "img/home-bg-post.jpg"
 catalog: true
@@ -40,6 +40,6 @@ Shamphone 的 Blog 就这么开通了。
 
 如果你恰好逛到了这里，希望你也能喜欢这个博客主题。
 
-—— Shamphone Lee, 2016-8-11 
+—— Shamphone Lee, 2016-8-1
 
 
