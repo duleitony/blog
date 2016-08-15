@@ -520,7 +520,7 @@ pre code {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
-    padding: 80px 0;
+    padding: 40px 0;
   }
 }
 .intro-header .site-heading {
@@ -579,7 +579,7 @@ pre code {
   font-size: 17px;
   line-height: 1.4;
   font-weight: normal;
-  margin: 10px 0 30px;
+  margin: 10px 0 10px;
   margin-top: -5px;
 }
 .intro-header .post-heading .meta {
