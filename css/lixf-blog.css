@@ -520,15 +520,15 @@ pre code {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
-    padding: 10px 0;
+    padding: 50px 0;
   }
 }
 .intro-header .site-heading {
-  padding: 95px 0 70px;
+  padding: 10px 0 10px;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading {
-    padding: 150px 0;
+    padding: 10px 0;
   }
 }
 .intro-header .site-heading,
