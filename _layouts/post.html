@@ -40,8 +40,7 @@ layout: default
                     {% endcomment %}
                     {% comment %} if page.subtitle {% endcomment %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
-                    {% comment %} endif {% endcomment %}
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    {% comment %} endif {% endcomment %}                   
                 </div>
             </div>
         </div>
@@ -65,7 +64,7 @@ layout: default
 
                 {% if site.duoshuo_share && site.duoshuo_username %}
                 <!-- 多说 Share start -->
-                </style>
+                <div class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</div>
                 <div class="ds-share"
                     style="text-align: right"
                     data-thread-key="{{page.id}}"
