@@ -513,7 +513,7 @@ pre code {
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
-  padding: 10px 0 10px;
+  padding: 40px 0 10px;
   color: white;
 }
 @media only screen and (min-width: 768px) {
@@ -524,7 +524,7 @@ pre code {
   }
 }
 .intro-header .site-heading {
-  padding: 10px 0 10px;
+  padding: 50px 0 10px;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading {
