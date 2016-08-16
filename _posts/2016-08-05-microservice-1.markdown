@@ -22,7 +22,7 @@ struts做展示层，对数据访问层做个简单封装实现业务逻辑层�
 既然要做重构，那例行的第一步，是给重构找理由。原有系统也妥妥地存在一些问题。 
 
 原有系统架构：
-![Image of Yaktocat](http://blog.lixf.cn/img/in-post/forcify.jpg)
+![Image of Yaktocat](http://blog.lixf.cn/img/in-post/legacy_arch.png)
 
 ## 可扩展性差，性能提升困难
 
