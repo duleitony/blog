@@ -6,7 +6,6 @@ date:       2016-04-14 12:00:00
 author:     "shamphone"
 header-img: "img/home-bg-post.jpg"
 catalog:true
-category:  "law"
 tags:
     - 金融法规
 ---
