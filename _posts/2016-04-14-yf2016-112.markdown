@@ -5,8 +5,8 @@ subtitle:   "银发【2016】112号"
 date:       2016-04-14 12:00:00
 author:     "shamphone"
 header-img: "img/home-bg-post.jpg"
-catalog: true
-category: law
+catalog:true
+category:  "law"
 tags:
     - 金融法规
 ---
