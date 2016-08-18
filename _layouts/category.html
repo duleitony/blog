@@ -24,7 +24,8 @@ layout: default
 <!-- NO SIDEBAR -->
     <!-- PostList Container -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 postlist-container">
-               {% for post in site.categories[page.category] %}
+			   {% for category in page.categories %}
+               {% for post in site.categories[category] %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
@@ -45,7 +46,7 @@ layout: default
 </div>
 <hr>
 {% endfor %}
-
+{% endfor %}
 
             </div>
     <!-- Sidebar Container -->
