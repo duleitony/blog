@@ -5,8 +5,7 @@ description: "央行、证监会发布的各种法规"
 header-img: "img/about-lixf.jpg"
 ---
 
-{% for post in paginator.posts %}
- {% if post.category == 'law' %}
+{% for post in site.categories.['law'].posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
@@ -25,6 +24,5 @@ header-img: "img/about-lixf.jpg"
         Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
     </p>
 </div>
- {% endif %}
 <hr>
 {% endfor %}
