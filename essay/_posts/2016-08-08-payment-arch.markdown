@@ -2,7 +2,7 @@
 layout:     post
 title:      "支付系统架构"
 subtitle:   "支付系统设计-1"
-date:       2016-08-05 12:00:00
+date:       2016-08-08 12:00:00
 author:     "shamphone"
 header-img: "img/home-bg-post.jpg"
 catalog:	true
