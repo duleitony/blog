@@ -5,9 +5,8 @@ subtitle:   "从SSH单体应用到微服务架构-1"
 date:       2016-08-05 12:00:00
 author:     "shamphone"
 header-img: "img/home-bg-post.jpg"
-catalog: true
-tags:
-    - 微服务
+catalog:	true
+tags:		[微服务]
 
 ---
 

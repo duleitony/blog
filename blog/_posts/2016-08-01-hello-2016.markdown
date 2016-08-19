@@ -5,9 +5,8 @@ subtitle:   " \"Hello World, Hello Blog\""
 date:       2016-08-01 12:00:00
 author:     "shamphone"
 header-img: "img/home-bg-post.jpg"
-catalog: true
-tags:
-    - 技术
+catalog:	true
+tags:		[Fintech]
 ---
 
 > “Yeah It's on. ”

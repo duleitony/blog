@@ -6,9 +6,7 @@ date:       2016-08-02 12:00:00
 author:     "shamphone"
 header-img: "img/home-bg-post.jpg"
 catalog: true
-tags:
-    - 技术
-    - Fintech
+tags:		[Fintech]
 
 ---
 # 机构和账户相关
