@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "重构的准备工作"
-subtitle:   "从SSH单体应用到微服务架构-2"
+subtitle:   "从SSH单体应用到微服务架构-3"
 date:       2016-08-06 12:00:00
 author:     "shamphone"
 header-img: "img/home-bg-post.jpg"
