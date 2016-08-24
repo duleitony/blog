@@ -12,14 +12,14 @@ tags:		[Fintech]
 
 来点干货吧。关于支付系统的架构设计
 
-先看看美团的：
-![美团支付系统产品架构](http://blog.lixf.cn/img/in-post/arch_meituan.png)
+先看看某团的：
+![某团支付系统产品架构](http://blog.lixf.cn/img/in-post/arch_meituan.png)
 
-去哪儿的：
-![去哪儿产品架构](http://blog.lixf.cn/img/in-post/arch_qunar.png)
+某Q旅游公司的的：
+![Q旅游公司产品架构](http://blog.lixf.cn/img/in-post/arch_qunar.png)
 
-京东金融的：
-![京东金融产品架构](http://blog.lixf.cn/img/in-post/arch_jd.png)
+某东金融的：
+![某东金融产品架构](http://blog.lixf.cn/img/in-post/arch_jd.png)
 
-蚂蚁金服金融的：
-![蚂蚁金服产品架构](http://blog.lixf.cn/img/in-post/arch_alipay.png)
+某金服金融的：
+![某金服产品架构](http://blog.lixf.cn/img/in-post/arch_alipay.png)
