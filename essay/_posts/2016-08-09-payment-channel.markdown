@@ -18,7 +18,9 @@ tags: [Fintech]
 
 {% raw %}
 
+```hbs
 javax.net.ssl.SSLHandshakeException: server certificate change is restrictedduring renegotiation
+```
 
 {% endraw %}
 
