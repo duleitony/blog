@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "以太网私链安装部署"
-subtitle: "以太网开发-1"
+title: "以太坊私链安装部署"
+subtitle: "区块链开发-1"
 date: 2016-08-10 12:00:00
 author: "shamphone"
 header-img: "img/home-bg-post.jpg"
@@ -14,6 +14,7 @@ tags: [Ethereum]
 ##  安装部署
 
 ### 1.安装 Go 环境
+
 如果机器无法上外网，还得配置一下代理。 Ubuntu配置代理的方式网上很多，这里不介绍。
 
 {% raw %}
