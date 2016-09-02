@@ -108,9 +108,9 @@ tags: [Ethereum]
 
 
 ```js
-personal.newAccount("ethroot");
- "0xea5c99831c2e4a0e094facdbac1befcf6c92e543
-exit
+&gt personal.newAccount("ethroot");
+ "0xea5c99831c2e4a0e094facdbac1befcf6c92e543"
+&gt exit
 ```
 
 
