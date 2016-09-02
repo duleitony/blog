@@ -100,31 +100,7 @@ tags: [Ethereum]
 
 其中 datadir用于指定数据目录。这个目录不能够预先创建，否则命令会失败。 执行结果如下：
 
-
-{% raw %}
-```hbs
-
-I0902 19:55:32.024937 cmd/utils/flags.go:568] WARNING: No etherbase set and no accounts found as default
-I0902 19:55:32.025127 ethdb/database.go:80] Allotted 128MB cache and 1024 file handles to data/chaindata
-I0902 19:55:32.027418 ethdb/database.go:167] closed db:data/chaindata
-I0902 19:55:32.027804 cmd/geth/main.go:329] instance: Geth/1.5.0-unstable/go1.5.1/linux
-I0902 19:55:32.027932 ethdb/database.go:80] Allotted 128MB cache and 1024 file handles to data/chaindata
-I0902 19:55:32.043734 eth/backend.go:179] Protocol Versions: [63 62], Network Id: 1
-I0902 19:55:32.451329 eth/backend.go:197] WARNING: Wrote default ethereum genesis block
-I0902 19:55:32.451797 core/blockchain.go:204] Last header: #0 [d4e56740?? TD=17179869184
-I0902 19:55:32.451894 core/blockchain.go:205] Last block: #0 [d4e56740?? TD=17179869184
-I0902 19:55:32.451972 core/blockchain.go:206] Fast block: #0 [d4e56740?? TD=17179869184
-I0902 19:55:32.452751 p2p/server.go:322] Starting Server
-I0902 19:55:34.128050 p2p/discover/udp.go:217] Listening, enode://:30303
-I0902 19:55:34.129711 node/node.go:308] IPC endpoint opened: data/geth.ipc
-I0902 19:55:34.130091 p2p/server.go:576] Listening on [::]:30303
-Welcome to the Geth JavaScript console!
-
-instance: Geth/v1.5.0-unstable/linux/go1.5.1
- modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
-
-```
-{% endraw %}
+![Image of Start Geth](http://blog.lixf.cn/img/in-post/eth-1.png)
 
 ### 创建账号
 
@@ -205,6 +181,9 @@ geth  --datadir "/root/chain" init genesis.json
 
 {% endraw %}
 
+执行结果如下：
+![Image of creating genesis ](http://blog.lixf.cn/img/in-post/eth-2.png)
+
 ### 启动私链
 
 执行如下脚本
@@ -242,28 +221,5 @@ geth --identity "Phoenix Ethereum "  --rpc  --rpccorsdomain "*" --datadir "/root
 
 > 注意：如果想将Ubuntu作为永久区块链节点使用，当使用nohup命令时，Geth启动参数console必须去掉，否则Geth会自动停止。
 
-{% raw %}
-
-```hbs
-
-I0902 20:39:37.761606 cmd/utils/flags.go:568] WARNING: No etherbase set and no accounts found as default
-I0902 20:39:37.761686 ethdb/database.go:80] Allotted 128MB cache and 1024 file handles to /root/chain/chaindata
-I0902 20:39:37.768965 ethdb/database.go:167] closed db:/root/chain/chaindata
-I0902 20:39:37.769044 cmd/geth/main.go:329] instance: Geth/1.5.0-unstable/go1.5.1/linux
-I0902 20:39:37.769077 ethdb/database.go:80] Allotted 128MB cache and 1024 file handles to /root/chain/chaindata
-I0902 20:39:37.793961 eth/backend.go:179] Protocol Versions: [63 62], Network Id: 98888
-I0902 20:39:37.795046 core/blockchain.go:204] Last header: #0 [e43742f8?? TD=131072
-I0902 20:39:37.795089 core/blockchain.go:205] Last block: #0 [e43742f8?? TD=131072
-I0902 20:39:37.795111 core/blockchain.go:206] Fast block: #0 [e43742f8?? TD=131072
-I0902 20:39:37.795934 p2p/server.go:322] Starting Server
-I0902 20:39:39.870273 p2p/discover/udp.go:217] Listening, enode://51788315e2fe4@[::]:30303
-I0902 20:39:39.870531 p2p/server.go:576] Listening on [::]:30303
-I0902 20:39:39.876936 node/node.go:378] HTTP endpoint opened: http://localhost:8545
-I0902 20:39:39.890253 node/node.go:308] IPC endpoint opened: /root/chain/geth.ipc
-Welcome to the Geth JavaScript console!
-
-instance: Geth/v1.5.0-unstable/linux/go1.5.1/Phoenix Ethereum 
- modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
-
- ```
-{% endraw %}
+执行结果如下：
+![Image of startup ](http://blog.lixf.cn/img/in-post/eth-3.png)
