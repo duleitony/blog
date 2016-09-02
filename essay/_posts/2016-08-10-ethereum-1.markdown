@@ -9,7 +9,7 @@ catalog: true
 tags: [Ethereum]
 ---
 
-> 这篇文章参考[区块链技术指南](https://yeasy.gitbooks.io/blockchain_guide/content/ethereum/install.html)。但原文是Happy flow。这里把我安装过程中碰到的坑也都记录下来。
+> 这篇文章参考[区块链技术指南](https://yeasy.gitbooks.io/blockchain_guide/content/ethereum/install.html)。但原文是Happy flow。这里把我安装过程中碰到的坑也都记录下来。我使用的是Ubuntu 14.10。这是以太坊推荐的版本。 
 
 ##  安装部署
 
