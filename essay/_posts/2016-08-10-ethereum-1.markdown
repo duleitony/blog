@@ -136,9 +136,9 @@ instance: Geth/v1.5.0-unstable/linux/go1.5.1
 
 ```hbs
 
-> personal.newAccount("ethroot");
-"0xea5c99831c2e4a0e094facdbac1befcf6c92e543"
-> exit
+ personal.newAccount("ethroot");
+      "0xea5c99831c2e4a0e094facdbac1befcf6c92e543"
+ exit
 
  ```
 
@@ -172,6 +172,7 @@ instance: Geth/v1.5.0-unstable/linux/go1.5.1
  ```
 
 {% endraw %}
+
 
 各个参数的含义如下：
 
