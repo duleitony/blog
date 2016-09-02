@@ -102,6 +102,7 @@ tags: [Ethereum]
 
 
 {% raw %}
+```hbs
 
 I0902 19:55:32.024937 cmd/utils/flags.go:568] WARNING: No etherbase set and no accounts found as default
 I0902 19:55:32.025127 ethdb/database.go:80] Allotted 128MB cache and 1024 file handles to data/chaindata
@@ -122,6 +123,7 @@ Welcome to the Geth JavaScript console!
 instance: Geth/v1.5.0-unstable/linux/go1.5.1
  modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
+```
 {% endraw %}
 
 ### 创建账号
