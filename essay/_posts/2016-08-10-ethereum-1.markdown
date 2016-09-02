@@ -110,9 +110,9 @@ tags: [Ethereum]
 
 ```hbs
 
- personal.newAccount("ethroot");
+   personal.newAccount("ethroot");
       "0xea5c99831c2e4a0e094facdbac1befcf6c92e543"
- exit
+   exit
 
  ```
 
@@ -126,7 +126,7 @@ tags: [Ethereum]
 
 ```hbs
 
-{
+  {
   "alloc": {
       "0xea5c99831c2e4a0e094facdbac1befcf6c92e543": {
       "balance": "1000"
@@ -141,7 +141,7 @@ tags: [Ethereum]
   "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "extraData": "CNNMoney Jack Ma interview: Wars start when trade stops, 20160902",
   "gasLimit": "0xffffffff"
-}
+  }
 
  ```
 
