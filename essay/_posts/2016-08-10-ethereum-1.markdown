@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "ÒÔÌ«ÍøË½Á´°²×°²¿Êğ"
-subtitle: "ÒÔÌ«Íø¿ª·¢-1"
+title: "ä»¥å¤ªç½‘ç§é“¾å®‰è£…éƒ¨ç½²"
+subtitle: "ä»¥å¤ªç½‘å¼€å‘-1"
 date: 2016-08-10 12:00:00
 author: "shamphone"
 header-img: "img/home-bg-post.jpg"
@@ -9,12 +9,12 @@ catalog: true
 tags: [Ethereum]
 ---
 
-> ÕâÆªÎÄÕÂ²Î¿¼[Çø¿éÁ´¼¼ÊõÖ¸ÄÏ](https://yeasy.gitbooks.io/blockchain_guide/content/ethereum/install.html)¡£µ«Ô­ÎÄÊÇHappy flow¡£ÕâÀï°ÑÎÒ°²×°¹ı³ÌÖĞÅöµ½µÄ¿ÓÒ²¶¼¼ÇÂ¼ÏÂÀ´¡£
+> è¿™ç¯‡æ–‡ç« å‚è€ƒ[åŒºå—é“¾æŠ€æœ¯æŒ‡å—](https://yeasy.gitbooks.io/blockchain_guide/content/ethereum/install.html)ã€‚ä½†åŸæ–‡æ˜¯Happy flowã€‚è¿™é‡ŒæŠŠæˆ‘å®‰è£…è¿‡ç¨‹ä¸­ç¢°åˆ°çš„å‘ä¹Ÿéƒ½è®°å½•ä¸‹æ¥ã€‚
 
-##  °²×°²¿Êğ
+##  å®‰è£…éƒ¨ç½²
 
-### °²×° Go »·¾³
-Èç¹û»úÆ÷ÎŞ·¨ÉÏÍâÍø£¬»¹µÃÅäÖÃÒ»ÏÂ´úÀí¡£ UbuntuÅäÖÃ´úÀíµÄ·½Ê½ÍøÉÏºÜ¶à£¬ÕâÀï²»½éÉÜ¡£
+### å®‰è£… Go ç¯å¢ƒ
+å¦‚æœæœºå™¨æ— æ³•ä¸Šå¤–ç½‘ï¼Œè¿˜å¾—é…ç½®ä¸€ä¸‹ä»£ç†ã€‚ Ubuntué…ç½®ä»£ç†çš„æ–¹å¼ç½‘ä¸Šå¾ˆå¤šï¼Œè¿™é‡Œä¸ä»‹ç»ã€‚
 
 {% raw %}
 
@@ -28,7 +28,7 @@ tags: [Ethereum]
 
 {% endraw %}
 
-### °²×° ethereum
+### å®‰è£… ethereum
 
 {% raw %}
 
@@ -42,7 +42,7 @@ tags: [Ethereum]
 
 {% endraw %}
 
-ÔÚÖ´ĞĞ  sudo add-apt-repository -y ppa:ethereum/ethereumµÄÊ±ºòÅöµ½Õâ¸öÎÊÌâ£º
+åœ¨æ‰§è¡Œ  sudo add-apt-repository -y ppa:ethereum/ethereumçš„æ—¶å€™ç¢°åˆ°è¿™ä¸ªé—®é¢˜ï¼š
 {% raw %}
 
 ```hbs
@@ -53,7 +53,7 @@ tags: [Ethereum]
 
 {% endraw %}
 
-°´ÕÕ[Ask Ubuntu](http://askubuntu.com/questions/429803/cannot-add-ppa-please-check-that-the-ppa-name-or-format-is-correct) µÄÒâ¼û£¬ĞŞ¸ÄÎª£º
+æŒ‰ç…§[Ask Ubuntu](http://askubuntu.com/questions/429803/cannot-add-ppa-please-check-that-the-ppa-name-or-format-is-correct) çš„æ„è§ï¼Œä¿®æ”¹ä¸ºï¼š
 {% raw %}
 
 ```hbs
@@ -67,7 +67,7 @@ tags: [Ethereum]
 
 
 
-°²×° solc ±àÒëÆ÷
+å®‰è£… solc ç¼–è¯‘å™¨
 
 {% raw %}
 
@@ -80,12 +80,12 @@ tags: [Ethereum]
 
 {% endraw %}
 
-°²×°ºó¿ÉÒÔÊ¹ÓÃ geth ÃüÁî´´½¨ ethereum ÕË»§
+å®‰è£…åå¯ä»¥ä½¿ç”¨ geth å‘½ä»¤åˆ›å»º ethereum è´¦æˆ·
 
   geth account new
 
-Solidity ÓïÑÔÖ§³Ö
+Solidity è¯­è¨€æ”¯æŒ
 
-browser-solidity Ìá¹©ÁËÔÚÏßµÄ Solidity ÓïÑÔ²âÊÔ¡£
+browser-solidity æä¾›äº†åœ¨çº¿çš„ Solidity è¯­è¨€æµ‹è¯•ã€‚
 
-ÓÃ»§Ò²¿ÉÒÔ´Ó ÕâÀï ÏÂÔØµ½°üÀ¨ Solidity ÔËĞĞ»·¾³µÄ°²×°°ü¡£
+ç”¨æˆ·ä¹Ÿå¯ä»¥ä» è¿™é‡Œ ä¸‹è½½åˆ°åŒ…æ‹¬ Solidity è¿è¡Œç¯å¢ƒçš„å®‰è£…åŒ…ã€‚
