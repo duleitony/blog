@@ -107,7 +107,7 @@ tags: [Ethereum]
 执行之后，进入`geth`的交互模式。 接着建立一个账号，然后退出。 这个账号用于执行创世操作。 然后`exit`退出
 
 
-```hbs
+```rubby
 > personal.newAccount("ethroot");
  "0xea5c99831c2e4a0e094facdbac1befcf6c92e543"
 > exit
@@ -119,7 +119,7 @@ tags: [Ethereum]
 编译创建创世区块所需要的脚本
 
 
-```js
+```rubby
   {
   "alloc": {
       "0xea5c99831c2e4a0e094facdbac1befcf6c92e543": {
