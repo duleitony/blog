@@ -61,6 +61,7 @@ tags: [Ethereum]
   sudo apt-get install software-properties-common
   sudo -E add-apt-repository -y ppa:ethereum/ethereum
   sudo -E add-apt-repository -y ppa:ethereum/ethereum-dev
+  sudo apt-get update
   sudo apt-get install ethereum
 ```
 
