@@ -106,8 +106,8 @@ tags: [Ethereum]
 
 执行之后，进入geth的交互模式。 接着建立一个账号，然后退出。 这个账号用于执行创世操作。 然后exit退出
 
-{% raw %}
 
+{% raw %}
 ```hbs
 
    personal.newAccount("ethroot");
