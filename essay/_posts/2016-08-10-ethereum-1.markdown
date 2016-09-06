@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "以太网私链安装部署"
-subtitle: "以太网开发-1"
+title: "以太坊私链安装部署"
+subtitle: "区块链开发-1"
 date: 2016-08-10 12:00:00
 author: "shamphone"
 header-img: "img/home-bg-post.jpg"
@@ -9,11 +9,12 @@ catalog: true
 tags: [Ethereum]
 ---
 
-> 这篇文章参考[区块链技术指南](https://yeasy.gitbooks.io/blockchain_guide/content/ethereum/install.html)。但原文是Happy flow。这里把我安装过程中碰到的坑也都记录下来。
+> 这篇文章参考[区块链技术指南](https://yeasy.gitbooks.io/blockchain_guide/content/ethereum/install.html)。但原文是Happy flow。这里把我安装过程中碰到的坑也都记录下来。我使用的是Ubuntu 14.10。这是以太坊推荐的版本。 
 
 ##  安装部署
 
-### 安装 Go 环境
+### 1.安装 Go 环境
+
 如果机器无法上外网，还得配置一下代理。 Ubuntu配置代理的方式网上很多，这里不介绍。
 
 {% raw %}
@@ -28,7 +29,7 @@ tags: [Ethereum]
 
 {% endraw %}
 
-### 安装 ethereum
+### 2.安装 ethereum
 
 {% raw %}
 
@@ -42,7 +43,7 @@ tags: [Ethereum]
 
 {% endraw %}
 
-在执行  sudo add-apt-repository -y ppa:ethereum/ethereum的时候碰到这个问题：
+在执行  `sudo add-apt-repository -y ppa:ethereum/ethereum`的时候碰到这个问题：
 {% raw %}
 
 ```hbs
@@ -67,7 +68,7 @@ tags: [Ethereum]
 
 
 
-安装 solc 编译器
+### 3.安装 solc 编译器
 
 {% raw %}
 
@@ -86,7 +87,7 @@ tags: [Ethereum]
 
 ## 搭建私链
 
-### 启动geth服务
+### 1.启动geth服务
 
 {% raw %}
 
@@ -102,30 +103,24 @@ tags: [Ethereum]
 
 ![Image of Start Geth](http://blog.lixf.cn/img/in-post/eth-1.png)
 
-### 创建账号
+### 2.创建账号
 
-执行之后，进入geth的交互模式。 接着建立一个账号，然后退出。 这个账号用于执行创世操作。 然后exit退出
+执行之后，进入`geth`的交互模式。 接着建立一个账号，然后退出。 这个账号用于执行创世操作。 然后`exit`退出
 
-{% raw %}
 
-```hbs
+```rubby
+> personal.newAccount("ethroot");
+ "0xea5c99831c2e4a0e094facdbac1befcf6c92e543"
+> exit
+```
 
-   personal.newAccount("ethroot");
-      "0xea5c99831c2e4a0e094facdbac1befcf6c92e543"
-   exit
 
- ```
-
-{% endraw %}
-
-### 创建创世区块
+### 3.创建创世区块
 
 编译创建创世区块所需要的脚本
 
-{% raw %}
 
-```hbs
-
+```rubby
   {
   "alloc": {
       "0xea5c99831c2e4a0e094facdbac1befcf6c92e543": {
@@ -142,84 +137,71 @@ tags: [Ethereum]
   "extraData": "CNNMoney Jack Ma interview: Wars start when trade stops, 20160902",
   "gasLimit": "0xffffffff"
   }
-
- ```
-
-{% endraw %}
+```
 
 
 各个参数的含义如下：
 
-- mixhash：与nonce配合用于挖矿，由上一个区块的一部分生成的hash。注意他和nonce的设置需要满足以太坊的Yellow paper, 4.3.4. Block Header Validity, (44)章节所描述的条件。.
+- **mixhash**：与nonce配合用于挖矿，由上一个区块的一部分生成的hash。注意他和nonce的设置需要满足以太坊的Yellow paper, 4.3.4. Block Header Validity, (44)章节所描述的条件。.
 
-- nonce: nonce就是一个64位随机数，用于挖矿，注意他和mixhash的设置需要满足以太坊的Yellow paper, 4.3.4. Block Header Validity, (44)章节所描述的条件。
+- **nonce**: nonce就是一个64位随机数，用于挖矿，注意他和mixhash的设置需要满足以太坊的Yellow paper, 4.3.4. Block Header Validity, (44)章节所描述的条件。
 
-- difficulty: 设置当前区块的难度，如果难度过大，cpu挖矿就很难，这里设置较小难度
+- **difficulty**: 设置当前区块的难度，如果难度过大，cpu挖矿就很难，这里设置较小难度
 
-- alloc: 用来预置账号以及账号的以太币数量，因为私有链挖矿比较容易，所以我们不需要预置有币的账号，需要的时候自己创建即可以。
+- **alloc**: 用来预置账号以及账号的以太币数量，因为私有链挖矿比较容易，所以我们不需要预置有币的账号，需要的时候自己创建即可以。
 
-- coinbase: 矿工的账号，随便填
+- **coinbase**: 矿工的账号，随便填
 
-- timestamp: 设置创世块的时间戳
+- **timestamp**: 设置创世块的时间戳
 
-- parentHash: 上一个区块的hash值，因为是创世块，所以这个值是0
+- **parentHash**: 上一个区块的hash值，因为是创世块，所以这个值是0
 
-- extraData: 附加信息，随便填，可以填你的个性信息
+- **extraData**: 附加信息，随便填，可以填你的个性信息
 
-- gasLimit: 该值设置对GAS的消耗总量限制，用来限制区块能包含的交易信息总和，因为我们是私有链，所以填最大。
+- **gasLimit**: 该值设置对GAS的消耗总量限制，用来限制区块能包含的交易信息总和，因为我们是私有链，所以填最大。
 
 
 创建数据存放地址并初始化创世块
 
-{% raw %}
-
 ```hbs
-
 geth  --datadir "/root/chain" init genesis.json 
+```
 
- ```
-
-{% endraw %}
 
 执行结果如下：
 ![Image of creating genesis ](http://blog.lixf.cn/img/in-post/eth-2.png)
 
-### 启动私链
+### 4.启动私链
 
 执行如下脚本
 
-{% raw %}
-
 ```hbs
-
 geth --identity "Phoenix Ethereum "  --rpc  --rpccorsdomain "*" --datadir "/root/chain" --port "30303"  --rpcapi "db,eth,net,web3" --networkid 98888 console
+```
 
- ```
-
-{% endraw %}
 
 各参数说明如下：
 
-- identity ：区块链的标示，随便填写，用于标示目前网络的名字
+- **identity** ：区块链的标示，随便填写，用于标示目前网络的名字
 
-- init ：指定创世块文件的位置，并创建初始块
+- **init** ：指定创世块文件的位置，并创建初始块
 
-- datadir ：设置当前区块链网络数据存放的位置
+- **datadir** ：设置当前区块链网络数据存放的位置
 
-- port：网络监听端口
+- **port**：网络监听端口
 
-- rpc：启动rpc通信，可以进行智能合约的部署和调试
+- **rpc**：启动rpc通信，可以进行智能合约的部署和调试
 
-- rpcapi： 设置允许连接的rpc的客户端，一般为db,eth,net,web3
+- **rpcapi**： 设置允许连接的rpc的客户端，一般为db,eth,net,web3
 
-- networkid： 设置当前区块链的网络ID，用于区分不同的网络，是一个数字
+- **networkid**： 设置当前区块链的网络ID，用于区分不同的网络，是一个数字
 
-- console：启动命令行模式，可以在Geth中执行命令
+- **console**：启动命令行模式，可以在Geth中执行命令
 
 启动后界面如下，光标停留在最后的命令行上，可以执行以太坊命令。
-可以看到Listening on [::]:30303和Welcome to the Geth JavaScript console!的提示，说明已经启动成功
+可以看到`Listening on [::]:30303`和`Welcome to the Geth JavaScript console!`的提示，说明已经启动成功
 
-> 注意：如果想将Ubuntu作为永久区块链节点使用，当使用nohup命令时，Geth启动参数console必须去掉，否则Geth会自动停止。
+> 注意：如果想将Ubuntu作为永久区块链节点使用，当使用`nohup`命令时，Geth启动参数`console`必须去掉，否则Geth会自动停止。
 
 执行结果如下：
 ![Image of startup ](http://blog.lixf.cn/img/in-post/eth-3.png)
