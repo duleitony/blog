@@ -378,4 +378,4 @@ geth --etherbase '0x1b39aa2446de648dd6928a759c542690cc32757b' --mine 2>> geth.lo
 > eth.getBalance(eth.accounts[0]).toNumber();
 1.5971875e+21
 ```
-话说， e+21，那是多大的数字啊？？
+话说， e+21，那是多大的数字啊？？发了。 
