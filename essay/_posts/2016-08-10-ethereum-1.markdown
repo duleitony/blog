@@ -50,7 +50,6 @@ tags: [Ethereum]
    Please check that the PPA name or format is correct.
 ```
 
-{% endraw %}
 
 按照[Ask Ubuntu](http://askubuntu.com/questions/429803/cannot-add-ppa-please-check-that-the-ppa-name-or-format-is-correct) 的意见，修改为：
 
