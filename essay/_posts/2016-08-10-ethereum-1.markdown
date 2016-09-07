@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "以太坊私链安装部署"
+title: "一夜暴富的秘密：搭建一个私有区块链环境"
 subtitle: "区块链开发-1"
 date: 2016-08-10 12:00:00
 author: "shamphone"
@@ -11,13 +11,16 @@ tags: [Ethereum]
 
 > 这篇文章参考[区块链技术指南](https://yeasy.gitbooks.io/blockchain_guide/content/ethereum/install.html)。但原文是Happy flow。这里把我安装过程中碰到的坑也都记录下来。我使用的是Ubuntu 14.10。这是以太坊推荐的版本。 
 
+最近在研究区块链。打算先搭建一个测试环境开始运行。这里记录整个搭建过程，供后来人参考。 
+整体上，分为三个步骤，安装相关软件，初始化系统，建立集群，以及最后一步，挖矿。
+我们采用的是以太坊，相对其他区块链，这是一个成熟的环境。 虽然近期有硬分支的事件，对企业应用来说，功能上还算是比较完善的。 
+
+
 ##  安装部署
 
 ### 1.安装 Go 环境
 
 如果机器无法上外网，还得配置一下代理。 Ubuntu配置代理的方式网上很多，这里不介绍。
-
-{% raw %}
 
 ```hbs
   curl -O https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz
@@ -27,11 +30,8 @@ tags: [Ethereum]
   source ~/.bashrc
 ```
 
-{% endraw %}
-
 ### 2.安装 ethereum
 
-{% raw %}
 
 ```hbs
   sudo apt-get install software-properties-common
@@ -41,10 +41,8 @@ tags: [Ethereum]
   sudo apt-get install ethereum
 ```
 
-{% endraw %}
 
 在执行  `sudo add-apt-repository -y ppa:ethereum/ethereum`的时候碰到这个问题：
-{% raw %}
 
 ```hbs
   root@ubuntu-KVM:~# sudo add-apt-repository -y ppa:ethereum/ethereum
@@ -55,7 +53,6 @@ tags: [Ethereum]
 {% endraw %}
 
 按照[Ask Ubuntu](http://askubuntu.com/questions/429803/cannot-add-ppa-please-check-that-the-ppa-name-or-format-is-correct) 的意见，修改为：
-{% raw %}
 
 ```hbs
   sudo apt-get install software-properties-common
@@ -65,13 +62,11 @@ tags: [Ethereum]
   sudo apt-get install ethereum
 ```
 
-{% endraw %}
 
 
 
 ### 3.安装 solc 编译器
 
-{% raw %}
 
 ```hbs
 
@@ -82,7 +77,16 @@ tags: [Ethereum]
 
 ```
 
-{% endraw %}
+同样的，如果碰到PPA Name错误的警示，则执行如下操作：
+
+```hbs
+
+  sudo -E add-apt-repository ppa:ethereum/ethereum-qt
+  sudo -E add-apt-repository ppa:ethereum/ethereum
+  sudo apt-get update
+  sudo apt-get install cpp-ethereum
+
+```
 
 这样相关软件已经安装完毕。 
 
@@ -90,7 +94,6 @@ tags: [Ethereum]
 
 ### 1.启动geth服务
 
-{% raw %}
 
 ```hbs
 
@@ -98,7 +101,6 @@ tags: [Ethereum]
 
 ```
 
-{% endraw %}
 
 其中 datadir用于指定数据目录。这个目录不能够预先创建，否则命令会失败。 执行结果如下：
 
