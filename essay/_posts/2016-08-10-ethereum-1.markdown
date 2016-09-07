@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "一夜暴富的秘密搭建一个私有区块链环境"
+title: "一夜暴富的秘密：搭建一个私有区块链环境"
 subtitle: "区块链开发-1"
 date: 2016-08-10 12:00:00
 author: "shamphone"
