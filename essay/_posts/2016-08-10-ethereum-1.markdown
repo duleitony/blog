@@ -201,13 +201,13 @@ geth --identity "phoenix"  --rpc  --rpccorsdomain "*" --datadir "/root/chain" --
 
 此外，还可以使用如下参数：
 
-- ##nodiscover##: 使用这个命令可以确保你的节点不会被非手动添加你的人发现。否则，你的节点可能被陌生人的区块链无意添加，如果他和你有相同的初始文件和网络ID。
+- **nodiscover** : 使用这个命令可以确保你的节点不会被非手动添加你的人发现。否则，你的节点可能被陌生人的区块链无意添加，如果他和你有相同的初始文件和网络ID。
 
-- ##maxpeers##: 如果你不希望其他人连接到你的测试链，可以使用maxpeers 0。反之，如果你确切知道希望多少人连接到你的节点，你也可以通过调整数字来实现。
+- **maxpeers** : 如果你不希望其他人连接到你的测试链，可以使用maxpeers 0。反之，如果你确切知道希望多少人连接到你的节点，你也可以通过调整数字来实现。
 
-- ##rpcapi##: 这个命令可以决定允许什么API通过RPC进入。在默认情况下，geth可以在RPC激活web3界面。请注意在RPC/IPC界面提供API，会使每个可以进入这个界面（例如dapp’s）的人都有权限访问这个API。注意你激活的是哪个API。Geth会默认激活IPC界面上所有的API，以及RPC界面上的db,eth,net和web3 API。
+- **rpcapi** : 这个命令可以决定允许什么API通过RPC进入。在默认情况下，geth可以在RPC激活web3界面。请注意在RPC/IPC界面提供API，会使每个可以进入这个界面（例如dapp’s）的人都有权限访问这个API。注意你激活的是哪个API。Geth会默认激活IPC界面上所有的API，以及RPC界面上的db,eth,net和web3 API。
 
-- ##rpccorsdomain##: 这个可以指示什么URL能连接到你的节点来执行RPC定制端任务。务必谨慎，输入一个特定的URL而不是wildcard ( * )，后者会使所有的URL都能连接到你的RPC实例。
+- **rpccorsdomain** : 这个可以指示什么URL能连接到你的节点来执行RPC定制端任务。务必谨慎，输入一个特定的URL而不是wildcard ( * )，后者会使所有的URL都能连接到你的RPC实例。
 
 
 
@@ -222,9 +222,9 @@ geth --identity "phoenix"  --rpc  --rpccorsdomain "*" --datadir "/root/chain" --
 ### 5.查看节点信息
 常用命令：
 
-- ##net.listening##：查看网络是否在监听； 
-- ##admin.peers##: 查看当前连接的节点。 目前还是空的。 
-- ##admin.nodeInfo##：查看当前节点的信息。
+- **net.listening**：查看网络是否在监听； 
+- **admin.peers**: 查看当前连接的节点。 目前还是空的。 
+- **admin.nodeInfo**：查看当前节点的信息。
 
 执行：
 
@@ -260,14 +260,31 @@ geth --identity "phoenix"  --rpc  --rpccorsdomain "*" --datadir "/root/chain" --
 
 注意enode节点，这是当前节点的标识。 后续会用到这个值。 
 
+### 6.查看账户信息
+
+在创建创世节点时，我们创建了个默认账户。可以通过如下命令查看账户余额。
+
+```rubby
+
+> eth.accounts
+["0x4b691e86c622127ed8e1d49899ad8c1d19834327"]
+> primary=eth.accounts[0]
+"0x4b691e86c622127ed8e1d49899ad8c1d19834327"
+> balance = web3.fromWei(eth.getBalance(primary), "ether");
+20
+
+```
+
 
 ## 配置第二台私链服务器
 
 第二台私链服务器，需要把第一台的步骤基本都要重复一遍。两台服务器配置一样才可以通讯。 需要改变的地方是：
+
 1. 第三步创建genesis.json的时候，完全使用第一台服务器的配置，不要用新建的account来创建。 
+
 2. 需要将第一台服务器添加到静态节点列表中。 
 
-### 5.添加静态节点列表
+### 7.添加静态节点列表
 
 在{datadir}下添加文件 static-nodes.json,内容如下：
 
