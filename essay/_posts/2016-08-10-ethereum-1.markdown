@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "一夜暴富的秘密：搭建一个私有区块链环境"
+title: "一夜暴富的秘密-搭建一个私有区块链环境"
 subtitle: "区块链开发-1"
 date: 2016-08-10 12:00:00
 author: "shamphone"
@@ -323,4 +323,59 @@ geth --identity "phoenix"  --rpc  --rpccorsdomain "*" --datadir "/root/chain" --
       }
     }
 }]
+
 ```
+
+## 挖矿
+
+激动人心的时刻到了。 作为一个伪金融圈人士，最大的梦想，古时候叫拥有一个聚宝盆，现在叫拥有一个印钞权，在数字货币时代，叫拥有一个挖矿机。 
+自己搭建的区块链，想怎么挖就怎么挖吧。 
+
+私链启动起来之后，挖矿其实很简单了。 首先必须保证的有一个账号：
+
+```hbs
+
+> eth.accounts
+["0x1b39aa2446de648dd6928a759c542690cc32757b"]
+> eth.getBalance(eth.accounts[0]).toNumber();
+0
+
+```
+
+账号里没钱。 那就开始挖吧。挖矿其实很简单，一个命令就开始了。默认的，挖到的钱，都放在当前账号中。如果有多个账号，默认的放到第一个账号中。 
+在geth环境下，运行：
+
+```hbs
+
+> miner.start();
+
+```
+
+或者运行命令行：
+
+```hbs
+
+geth --mine --minerthreads=4
+
+```
+
+minerthreads用来指定运行的线程数。默认为当前CPU的核数。 如果有多个账号，可以指定挖矿收入放到第几个账号，注意编号是从0开始的：
+
+```hbs
+miner.setEtherbase(eth.accounts[0])
+```
+
+或者命令行执行：
+
+```hbs
+geth --etherbase 0 --mine  2>> geth.log // 0 is index: first account by creation order OR
+geth --etherbase '0x1b39aa2446de648dd6928a759c542690cc32757b' --mine 2>> geth.log
+```
+
+半小时后，查看下账户余额：
+
+```hbs
+> eth.getBalance(eth.accounts[0]).toNumber();
+1.5971875e+21
+```
+话说， e+21，那是多大的数字啊？？
