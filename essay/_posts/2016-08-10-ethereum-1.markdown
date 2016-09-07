@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "一夜暴富的秘密-搭建一个私有区块链环境"
+title: "一夜暴富的秘密搭建一个私有区块链环境"
 subtitle: "区块链开发-1"
 date: 2016-08-10 12:00:00
 author: "shamphone"
@@ -222,6 +222,7 @@ geth --identity "phoenix"  --rpc  --rpccorsdomain "*" --datadir "/root/chain" --
 ![Image of startup ](http://blog.lixf.cn/img/in-post/eth-3.png)
 
 ### 5.查看节点信息
+
 常用命令：
 
 - **net.listening**：查看网络是否在监听； 
@@ -362,20 +363,27 @@ geth --mine --minerthreads=4
 minerthreads用来指定运行的线程数。默认为当前CPU的核数。 如果有多个账号，可以指定挖矿收入放到第几个账号，注意编号是从0开始的：
 
 ```hbs
+
 miner.setEtherbase(eth.accounts[0])
+
 ```
 
 或者命令行执行：
 
 ```hbs
+
 geth --etherbase 0 --mine  2>> geth.log // 0 is index: first account by creation order OR
 geth --etherbase '0x1b39aa2446de648dd6928a759c542690cc32757b' --mine 2>> geth.log
+
 ```
 
 半小时后，查看下账户余额：
 
 ```hbs
+
 > eth.getBalance(eth.accounts[0]).toNumber();
 1.5971875e+21
+
 ```
+
 话说， e+21，那是多大的数字啊？？发了。 
