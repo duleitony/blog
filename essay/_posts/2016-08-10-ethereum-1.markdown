@@ -94,7 +94,7 @@ tags: [Ethereum]
 
 ```hbs
 
-  geth --datadir data console
+  geth --datadir "/root/data" console
 
 ```
 
@@ -110,7 +110,7 @@ tags: [Ethereum]
 
 
 ```rubby
-> personal.newAccount("ethroot");
+> personal.newAccount("密码");
  "0xea5c99831c2e4a0e094facdbac1befcf6c92e543"
 > exit
 ```
@@ -118,7 +118,7 @@ tags: [Ethereum]
 
 ### 3.创建创世区块
 
-编译创建创世区块所需要的脚本
+编译创建创世区块所需要的脚本， 注意alloc下的key需要和上述的账号保持一致。
 
 
 ```rubby
@@ -177,7 +177,7 @@ geth  --datadir "/root/chain" init genesis.json
 执行如下脚本
 
 ```hbs
-geth --identity "Phoenix Ethereum "  --rpc  --rpccorsdomain "*" --datadir "/root/chain" --port "30303"  --rpcapi "db,eth,net,web3" --networkid 98888 console
+geth --identity "phoenix"  --rpc  --rpccorsdomain "*" --datadir "/root/chain" --port "30303"  --rpcapi "db,eth,net,web3" --networkid 98888 console
 ```
 
 
@@ -218,3 +218,90 @@ geth --identity "Phoenix Ethereum "  --rpc  --rpccorsdomain "*" --datadir "/root
 
 执行结果如下：
 ![Image of startup ](http://blog.lixf.cn/img/in-post/eth-3.png)
+
+### 5.查看节点信息
+常用命令：
+
+- ##net.listening##：查看网络是否在监听； 
+- ##admin.peers##: 查看当前连接的节点。 目前还是空的。 
+- ##admin.nodeInfo##：查看当前节点的信息。
+
+执行：
+
+```rubby
+> admin.nodeInfo
+```
+
+得到当前节点信息如下：
+
+```rubby
+
+{
+  enode: "enode://dfd047d64a3d8c9d9c2834bc8c3bbf41a79e6797956fa99469b872d97a7978e4e7a6d9605ec6e77164515f6f09d979999ca3ef91eebcd2a6c91ebdfe167de094@[::]:30303",
+  id: "dfd047d64a3d8c9d9c2834bc8c3bbf41a79e6797956fa99469b872d97a7978e4e7a6d9605ec6e77164515f6f09d979999ca3ef91eebcd2a6c91ebdfe167de094",
+  ip: "::",
+  listenAddr: "[::]:30303",
+  name: "Geth/v1.5.0-unstable/linux/go1.5.1/phoenix",
+  ports: {
+    discovery: 30303,
+    listener: 30303
+  },
+  protocols: {
+    eth: {
+      difficulty: 131072,
+      genesis: "0xaab381212b8108c488c8d21c06042a9081b94bfb87665110520d3c295626e79b",
+      head: "0xaab381212b8108c488c8d21c06042a9081b94bfb87665110520d3c295626e79b",
+      network: 98888
+    }
+  }
+}
+
+```
+
+注意enode节点，这是当前节点的标识。 后续会用到这个值。 
+
+
+## 配置第二台私链服务器
+
+第二台私链服务器，需要把第一台的步骤基本都要重复一遍。两台服务器配置一样才可以通讯。 需要改变的地方是：
+1. 第三步创建genesis.json的时候，完全使用第一台服务器的配置，不要用新建的account来创建。 
+2. 需要将第一台服务器添加到静态节点列表中。 
+
+### 5.添加静态节点列表
+
+在{datadir}下添加文件 static-nodes.json,内容如下：
+
+```rubby
+[
+"enode://dfd047d64a3d8c9d9c2834bc8c3bbf41a79e6797956fa99469b872d97a7978e4e7a6d9605ec6e77164515f6f09d979999ca3ef91eebcd2a6c91ebdfe167de094@第一个节点的IP地址:30303"
+]
+```
+
+执行如下脚本启动节点：
+
+```hbs
+geth --identity "phoenix"  --rpc  --rpccorsdomain "*" --datadir "/root/chain" --port "30303"  --rpcapi "db,eth,net,web3" --networkid 98888 console
+```
+
+启动成功后，查看当前连接的节点：
+
+```rubby
+
+> admin.peers
+[{
+    caps: ["eth/62", "eth/63"],
+    id: "dfd047d64a3d8c9d9c2834bc8c3bbf41a79e6797956fa99469b872d97a7978e4e7a6d9605ec6e77164515f6f09d979999ca3ef91eebcd2a6c91ebdfe167de094",
+    name: "Geth/v1.5.0-unstable/linux/go1.5.1/phoenix",
+    network: {
+      localAddress: "10.15.244.204:56808",
+      remoteAddress: "10.15.244.203:30303"
+    },
+    protocols: {
+      eth: {
+        difficulty: 131072,
+        head: "0xaab381212b8108c488c8d21c06042a9081b94bfb87665110520d3c295626e79b",
+        version: 63
+      }
+    }
+}]
+```
