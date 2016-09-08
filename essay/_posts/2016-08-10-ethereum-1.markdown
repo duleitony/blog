@@ -96,7 +96,7 @@ tags: [Ethereum]
 
 ```hbs
 
-  geth --datadir "/root/data" console
+  geth --datadir "/root/chain" console
 
 ```
 
