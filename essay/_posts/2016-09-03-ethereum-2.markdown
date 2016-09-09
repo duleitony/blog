@@ -1,0 +1,78 @@
+---
+layout: post
+title: "以太坊开发入门-交易与合约"
+subtitle: "区块链开发-2"
+date: 2016-09-03 12:00:00
+author: "shamphone"
+header-img: "img/home-bg-post.jpg"
+catalog: true
+tags: [Ethereum]
+---
+
+> 本文是针对以太坊开发入门的教程。 纯开发人员版本。关于以太坊相关概念，比如合约、交易、以太币等，参考[官方文档](https://github.com/ethereum/go-ethereum/wiki/Contracts-and-Transactions)，或者[中文版](http://wangxiaoming.com/blog/archives/)
+
+本文假定你已经看过上一篇文档[码农的区块链：搭建一个私有区块链环境](http://blog.lixf.cn/essay/2016/09/02/ethereum-1/)。
+
+##  安装solidity
+
+启动geth，首先检查是否安装了solidity。
+
+```hbs
+> eth.getCompilers();
+["Solidity"]
+```
+
+如果返回值是空的，先用where solc看看是否已经安装了，如果没有，则安装下solidity编辑器：
+```hbs
+sudo apt-get install solc
+```
+
+安装完成之后，再运行上述命令，应该能看到结果了。 
+
+```hbs
+> source = "contract test { function multiply(uint a) returns(uint d) { return a * 7; } }"
+"contract test { function multiply(uint a) returns(uint d) { return a * 7; } }"
+```
+
+```hbs
+
+> contract = eth.compile.solidity(source).test
+{
+  code: "0x606060405260308060106000396000f3606060405260e060020a6000350463c6888fa18114601c575b6002565b346002576007600435026060908152602090f3",
+  info: {
+    abiDefinition: [{
+        constant: false,
+        inputs: [...],
+        name: "multiply",
+        outputs: [...],
+        payable: false,
+        type: "function"
+    }],
+    compilerOptions: "--combined-json bin,abi,userdoc,devdoc --add-std --optimize",
+    compilerVersion: "0.4.0",
+    developerDoc: {
+      methods: {}
+    },
+    language: "Solidity",
+    languageVersion: "0.4.0",
+    source: "contract test { function multiply(uint a) returns(uint d) { return a * 7; } }",
+    userDoc: {
+      methods: {}
+    }
+  }
+}
+
+```
+编译结果各个标签说明如下：
+
+- **Code** ： 编译的以太坊虚拟机字节代码
+- **Info** ： 从编译器输出的额外元数据
+- **Source** ： 源代码
+- **Language** ： 合约语言 (Solidity，Serpent，LLL)
+- **LanguageVersion** ： 合约语言版本
+- **compilerVersion** ： 用于编译这个合约的solidity编译器版本。
+- **abiDefinition**： 应用的二进制界面定义
+- **userDoc** ： 用户的NatSpec Doc。
+- **developerDoc** ： 开发者的NatSpec Doc。
+ 
+头条的同学们，记得帮忙点赞啊。 
