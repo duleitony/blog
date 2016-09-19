@@ -115,7 +115,7 @@ DAO层的重构的工作量比较大。 需要将原来访问数据库的逻辑�
 
 采用消息中间件目前主流的做法，适合于对数据实时性要求不高的场景。 如下图所示，在数据写入的服务中，完成写入后，抛出消息。其他数据库通过接受消息来更新数据。 
 优点是系统灵活，无论是同DC还是跨DC的情况都可以正常工作。 对数据同步的情况，可以通过MQ提供的监控系统也能够了解。 缺点是开发工作量大，数据同步实时性不高。 
-![Image of Database Sync](http://blog.lixf.cn/img/in-post/account-dbsync.png)
+![Image of Database Sync](http://blog.lixf.cn/img/in-post/account_dbsync.png)
 
 ## 如果时间不够
 
