@@ -16,7 +16,7 @@ tags: [Ethereum]
 ## 运行环境
 
 这个实例是在三台机器上运行，dev011, dev012,dev013。
-在这三台机器上设置启动以太坊，并注意将其他两台机器加入到静态节点名单中：
+在这三台机器上启动以太坊。注意将其他两台机器加入到静态节点名单static-nodes.json中：
 
 ```hbs
 [
@@ -26,6 +26,7 @@ tags: [Ethereum]
 ]
 
 ```
+
 启动服务：
 
 ```hbs
@@ -35,6 +36,7 @@ geth --identity "phoenix" --verbosity 1  --maxpeers 20  --rpc  --rpccorsdomain "
 ```
 
 在每个机器上运行查看是否能看到其他两台服务器：
+
 ```hbs
 
 > admin.peers
@@ -70,6 +72,8 @@ geth --identity "phoenix" --verbosity 1  --maxpeers 20  --rpc  --rpccorsdomain "
     }
 }]
 
+## 启动挖矿
+
 ```
 
 在dev013机器上开始挖矿，准备记账：
@@ -78,6 +82,8 @@ geth --identity "phoenix" --verbosity 1  --maxpeers 20  --rpc  --rpccorsdomain "
 > miner.start()
 true
 ```
+
+## 执行转账
 
 我们使用dev011和dev012上的账户执行转账操作。输出账户在dev012上，先看看这个账户的余额，解锁账户，执行转账操作。
 
@@ -92,7 +98,9 @@ true
 > eth.sendTransaction({from:'0x1b39aa2446de648dd6928a759c542690cc32757b', to:'0x4b691e86c622127ed8e1d49899ad8c1d19834327',value:web3.toWei(1,"ether")})
 
 ```
+
 这个交易并不会立即生效，可通过这个命令来看看交易的状态：
+
 ```hbs
 > eth.getBlock("pending", true).transactions
 [{
@@ -111,19 +119,31 @@ true
     v: "0x1b",
     value: 1000000000000000000
 }]
+
 ```
 
 这表明矿工还没有将这个交易记录到账上。 几分钟后，在运行这个命令：
+
 ```hbs
 > eth.getBlock("pending", true).transactions
 []
+
 ```
+
 这说明交易已经生效。我们看一下账户余额：
+
 ```hbs
 > eth.getBalance('0x1b39aa2446de648dd6928a759c542690cc32757b')
 4.73951518e+21
+
 ```
+
+可以看到，钱已经被转走了。
+
+## 币值计算
+
 总共花了多少钱？ 这里涉及到以太币的单位换算。 以太坊有两个币单位：
+
 1. ether， 即常说的以太币。
 2. wei，这是最小单位的币值。 
 
@@ -139,6 +159,7 @@ true
 4739.51518
 
 ```
+
 上述账号， 交易前和交易后，转换成ether，支出是：
 
 ```hbs
@@ -146,6 +167,9 @@ true
 4740.5156 - 4739.51518 = 1.00042
 
 ```
+
 其中 1 ether 是转走的以太币， 0.00042 是gas费用，支付给矿工的。 
- 
+
+这是最简单的转账操作，后续给大家介绍以太坊的核心合约是怎么操作的。 
+
 头条的同学们，记得帮忙点赞啊。 
