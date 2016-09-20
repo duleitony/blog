@@ -72,9 +72,10 @@ geth --identity "phoenix" --verbosity 1  --maxpeers 20  --rpc  --rpccorsdomain "
     }
 }]
 
-## 启动挖矿
-
 ```
+
+
+## 启动挖矿
 
 在dev013机器上开始挖矿，准备记账：
 
@@ -99,7 +100,7 @@ true
 
 ```
 
-这个交易并不会立即生效，可通过这个命令来看看交易的状态：
+这个交易并不会立即生效，可通过这个命令来看看还未被记账的交易：
 
 ```hbs
 > eth.getBlock("pending", true).transactions
