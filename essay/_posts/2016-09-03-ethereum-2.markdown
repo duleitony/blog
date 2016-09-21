@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "以太坊开发入门-交易"
+title: "在以太坊上私链上实现一个简单的交易"
 subtitle: "区块链开发-2"
 date: 2016-09-03 12:00:00
 author: "shamphone"
