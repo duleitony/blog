@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "使用微服务架构重构支付网关"
-subtitle:   "从SSH单体应用到微服务架构-5"
+subtitle:   "从SSH单体应用到微服务架构-6"
 date:       2016-09-01 12:00:00
 author:     "shamphone"
 header-img: "img/home-bg-post.jpg"
