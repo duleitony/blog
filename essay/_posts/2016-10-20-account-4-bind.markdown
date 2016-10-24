@@ -19,15 +19,15 @@ tags: [支付系统]
 # 绑卡场景
 
 直观的，电商网站会在用户后台提供一个绑卡的入口，让用户直接绑卡。以支付宝绑卡流程为例，我们可以体验下:
-![alipay-1](http://blog.lixf.cn/img/in-post/alipay-1.PNG)
+![alipay-1](http://blog.lixf.cn/img/in-post/alipay-1.PNG = 160*284)
 
-![alipay-2](http://blog.lixf.cn/img/in-post/alipay-2.PNG)
+![alipay-2](http://blog.lixf.cn/img/in-post/alipay-2.PNG = 160*284)
 
-![alipay-3](http://blog.lixf.cn/img/in-post/alipay-3.PNG)
+![alipay-3](http://blog.lixf.cn/img/in-post/alipay-3.PNG = 160*284)
 
-![alipay-4](http://blog.lixf.cn/img/in-post/alipay-4.PNG)
+![alipay-4](http://blog.lixf.cn/img/in-post/alipay-4.PNG = 160*284)
 
-![alipay-5](http://blog.lixf.cn/img/in-post/alipay-5.PNG)
+![alipay-5](http://blog.lixf.cn/img/in-post/alipay-5.PNG = 160*284)
 
 这里有如下要点：
 
