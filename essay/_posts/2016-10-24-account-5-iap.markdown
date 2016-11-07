@@ -14,21 +14,19 @@ tags: [支付系统]
 # 为什么要IAP
 相对来说，应用内支付的用户体验，和微信支付、支付宝相比，还是有一定差距的，但是为什么要开发应用内支付呢？ 这个和苹果的AppStore的审核政策有关。 在官方的 (App Store Review Guidelines)[https://developer.apple.com/app-store/review/guidelines/2016-06-13/] 中， 有如下几条意见：
 
-```hbs
-11.2 Apps utilizing a system other than the In-App Purchase API (IAP) to purchase content, functionality, or services in an App will be rejected.
-```
+
+> 1.2 Apps utilizing a system other than the In-App Purchase API (IAP) to purchase content, functionality, or services in an App will be rejected.
+
 
 在 App 内使用非 IAP 的系统来购买内容、功能或服务将被拒绝。
 
-```hbs
-11.3 Apps using IAP to purchase physical goods or goods and services used outside of the App will be rejected.  
-```
+>  11.3 Apps using IAP to purchase physical goods or goods and services used outside of the App will be rejected.  
+
 
 IAP 购买实物或者应用外的商品或服务将会被拒绝；
 
-```hbs
-11.4  Apps that use IAP to purchase credits or other currencies must consume those credits within the App 
-```
+>  11.4  Apps that use IAP to purchase credits or other currencies must consume those credits within the App 
+
 
 通过 IAP 购买的积分或者其他货币必须只在 App 内使用。
 
