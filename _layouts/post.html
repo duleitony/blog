@@ -61,7 +61,7 @@ layout: default
 
 				{{ content }}
 
-				<p>感谢您对本文的关注，如需要及时收到凤凰牌老熊的最新作品，请扫码关注“凤凰牌老熊”的微信公众号，谢谢。 </p>
+				<p>感谢您对本文的关注，如需要及时收到凤凰牌老熊的最新作品，或者有相关问题探讨，请扫码关注“凤凰牌老熊”的微信公众号，在公众号里留言或者回复，可以尽快处理，谢谢。 </p>
 				<p>	<img src="http://blog.lixf.cn/img/weixin_430.jpg" /> </p>
 				<hr/>
                 {% if site.duoshuo_share && site.duoshuo_username %}
@@ -107,28 +107,7 @@ layout: default
                     </li>
                     {% endif %}
                 </ul>
-
 				
-                {% if site.duoshuo_username %}
-                <!-- 多说评论框 start -->
-                <div class="comment">
-                    <div class="ds-thread"
-                        data-thread-key="{{page.id}}"
-                        data-title="{{page.title}}"
-                        data-url="{{site.url}}{{site.baseurl}}{{page.url}}" >
-                    </div>
-                </div>
-                <!-- 多说评论框 end -->
-                {% endif %}
-
-                {% if site.disqus_username %}
-                <!-- disqus 评论框 start -->
-                <div class="comment">
-                    <div id="disqus_thread" class="disqus-thread"></div>
-                </div>
-                <!-- disqus 评论框 end -->
-                {% endif %}
-
             </div>  
 
     <!-- Side Catalog Container -->
