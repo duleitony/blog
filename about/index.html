@@ -5,11 +5,6 @@ description: "Hi, this is Shamphone Lee."
 header-img: "img/about-lixf.jpg"
 ---
 
-<!-- Language Selector -->
-<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
-    <option value="0" selected> 中文 Chinese </option>
-    <option value="1"> 英文 English </option>
-</select>
 
 <!-- Chinese Version -->
 <div class="zh post-container">
@@ -17,118 +12,13 @@ header-img: "img/about-lixf.jpg"
     <!--copied from markdown -->
     <blockquote><p>天道酬勤，知行合一。</p></blockquote>
 
-    <p>Hey，我是<strong>凤凰牌老熊</strong>，程序员 &amp; 架构师，来自<a href="http://www.ustc.edu">中科大</a>，研究生在<a href="http://www.iscas.ac.cn">软件所</a>学习。在中科辅龙、三星（中国）研究院、爱奇艺公司呆过， 呆过。 这个博客是个人的工作中的一些感悟，有任何意见和建议，请发邮件<a href="mailto:shamphone@gmail.com"> shamphone@gmail.com</a>。  </p>
+    <p>Hey，我是<strong>凤凰牌老熊</strong>，程序员 &amp; 架构师，来自<a href="http://www.ustc.edu">中科大</a>，研究生在<a href="http://www.iscas.ac.cn">软件所</a>学习。
+	
+	<p>在中科辅龙、三星（中国）研究院和国内一些大型的互联网公司呆过，负责过电子政务系统、反洗钱、支付系统的开发工作。  </p>
+	
+	<p>这个博客是个人的工作中的一些感悟，系原创文章，如有任何疑问，请关注我的公众号“凤凰牌老熊”， 一般当天都能够处理。欢迎转载这里的文章，以文会友。转载请保留文章作者（凤凰牌老熊）、来源、微信公众号，谢谢。  您也可以使用邮箱 shamphone</p>
 
-    <p></p>
-
+    <p>扫描二维码，可以关注我的公众号“凤凰牌老熊” 。</p>
+	<p>	<img src="http://blog.lixf.cn/img/weixin_430.jpg" /> </p>
 </div>
 
-<!-- English Version -->
-<div class="en post-container">
-    <blockquote><p>Yet another Software Engineer.</p></blockquote>
-
-    <p>Hi, Here is <strong>Shamphone Lee</strong>，you can call me <strong>Shamphone</strong>. I'm an software engineer, and i think i could do nothing else than programming and architecting. </p>
-  
-</div>
-
-<!-- Handle Language Change -->
-<script type="text/javascript">
-    // get nodes
-    var $zh = document.querySelector(".zh");
-    var $en = document.querySelector(".en");
-    var $select = document.querySelector("select");
-
-    // bind hashchange event
-    window.addEventListener('hashchange', _render);
-
-    // handle render
-    function _render(){
-        var _hash = window.location.hash;
-        // en
-        if(_hash == "#en"){
-            $select.selectedIndex = 1;
-            $en.style.display = "block";
-            $zh.style.display = "none";
-        // zh by default
-        }else{
-            // not trigger onChange, otherwise cause a loop call.
-            $select.selectedIndex = 0;
-            $zh.style.display = "block";
-            $en.style.display = "none";
-        }
-    }
-
-    // handle select change
-    function onLanChange(index){
-        if(index == 0){
-            window.location.hash = "#zh"
-        }else{
-            window.location.hash = "#en"
-        }
-    }
-
-    // init
-    _render();
-</script>
-
-
-
-{% if site.duoshuo_username %}
-<!-- 多说评论框 start -->
-<div class="comment">
-    <div class="ds-thread"
-    {% if site.duoshuo_username == "huxblog" %}
-        data-thread-id="1187623191091085319"
-    {% else %}
-        data-thread-key="{{site.duoshuo_username}}/about"
-    {% endif %}
-
-    data-title="{{page.title}}"
-    data-url="{{site.url}}/about/"></div>
-</div>
-<!-- 多说评论框 end -->
-
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    // dynamic User hacking by Hux
-    var _user = '{{site.duoshuo_username}}';
-
-    // duoshuo comment query.
-    var duoshuoQuery = {short_name: _user };
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-</script>
-<!-- 多说公共JS代码 end -->
-{% endif %}
-
-
-{% if site.disqus_username %}
-<!-- disqus 评论框 start -->
-<div class="comment">
-    <div id="disqus_thread" class="disqus-thread">
-
-    </div>
-</div>
-<!-- disqus 评论框 end -->
-
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "{{site.disqus_username}}";
-    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
-    var disqus_url = "{{site.url}}{{page.url}}";
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus 公共JS代码 end -->
-{% endif %}
