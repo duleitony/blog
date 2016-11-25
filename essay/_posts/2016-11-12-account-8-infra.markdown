@@ -47,7 +47,7 @@ tags: [支付系统]
 # 日志搜集与分析
 
 开发同学不碰线上系统，这是支付系统的原则。那线上系统出问题了怎么办？开发人员总是依赖日志来排查问题，一个日志汇总系统是支付平台必备的基础设施。考虑到日志最终都需要归并到一个日志仓库中，这个仓库可以有很多用途，特别是日常维护中的日志查询工作。多数指标可以在日志上完成计算的。 借助这个系统，也可以完成监控：
-！[zabbix 监控](http://blog.lixf.cn/img/in-post/monitor-2.png)
+![zabbix 监控](http://blog.lixf.cn/img/in-post/monitor-2.png)
 
 日志通过Apache Flume来收集，通过Apache Kafka来汇总，一般最后日志都归档到Elastic中。 统计分析工作也可以基于Elastic来做，但这个不推荐。 使用Apache Spark 的 Streaming组件来接入Apache Kafka 完成监控指标的提取和计算，将结果推送到Zabbix服务器上，就可以实现可扩展的监控。
 Apache Flume和Logstash都可以用于日志收集，从实际使用来看，两者在性能上并无太大差异。Flume是java系统，Logstash是ruby系统。使用中都会涉及到对系统的扩展，这就看那个语言你能hold住了。
@@ -56,7 +56,7 @@ Apache Flume和Logstash都支持日志直接入库，即写入HDFS，Elastic等�
 # 系统监控
 
 现在基本上 Zabbix 成为监控的标配了。 一个常规的 Zabbix 监控实现， 是在被监控的机器上部署Zabbix Agent，从日志中收集所需要的数据，分析出监控指标，发送到zabbix服务器上。
-！[zabbix 监控](http://blog.lixf.cn/img/in-post/monitor-1.png)
+![zabbix 监控](http://blog.lixf.cn/img/in-post/monitor-1.png)
 这种方式要求每个机器上部署 Zabbix 客户端，并配置数据收集脚本。Zabbix的部署可以作为必装软件随操作系统一起安装。
 
 # 持续集成
