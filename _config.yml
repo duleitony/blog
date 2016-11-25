@@ -7,7 +7,7 @@ description: "Java开发、软件架构、大数据、FinTech、互联网金融�
 keyword: "Java开发，软件架构，大数据，FinTech，互联网金融，知行合一"
 url: "https://blog.lixf.cn"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
-
+encoding: UTF-8
 
 
 # SNS settings
