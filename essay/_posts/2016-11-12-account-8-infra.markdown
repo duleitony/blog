@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "支付微服务系统的基础设施建设"
+title: "支付系统的基础设施建设"
 subtitle: "支付系统设计-8"
 date: 2016-11-12 12:00:00
 author: "shamphone"
