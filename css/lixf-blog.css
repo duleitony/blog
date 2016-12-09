@@ -8,15 +8,18 @@
 .container {
     width: 90%;
 }
+
+@media (min-width: 1200px)
+.col-lg-offset-2 {
+    margin-left: 20px;
+}
+
 @media (min-width: 768px) {
   .post-container {
     padding-right: 5%;
   }
 }
-@media (min-width: 1200px)
-.col-lg-offset-2 {
-    margin-left: 20px;
-}
+
 .sidebar-container {
   color: #bfbfbf;
   font-size: 14px;
