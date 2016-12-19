@@ -123,12 +123,12 @@ pingback的挑战在于如何在服务器端应对流量洪峰。pingback数据�
 
 **个人名单**，如下名单是必备的(后续会及时更新)，
 
-- (央行的反洗钱恐怖分子名单)[
+- [央行的反洗钱恐怖分子名单](
 
-http://www.pbc.gov.cn/fanxiqianju/135153/135267/index.html]
+http://www.pbc.gov.cn/fanxiqianju/135153/135267/index.html)
 
-- (公安部的通缉犯名单)[http://www.zhuatongji.com/gawtjfmd/]
-- (全国法院失信被执行人名单信息公布与查询)[http://shixin.court.gov.cn/]
+- [公安部的通缉犯名单](http://www.zhuatongji.com/gawtjfmd/)
+- [全国法院失信被执行人名单信息公布与查询](http://shixin.court.gov.cn/)
 
 **IP名单**，没有权威的IP名单。这需要在运行中积累。建立IP名单需要注意如下事项：公司内部IP，合作伙伴IP可以列入白名单列表；手机运营商的IP也要做到白名单中，封一个IP等于封掉一大批手机号；代理服务器可以列入灰名单；访问量大的IP也可能大公司的外网IP，不能仅依赖访问量来识别黑IP。
 
