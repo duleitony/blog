@@ -123,9 +123,7 @@ pingback的挑战在于如何在服务器端应对流量洪峰。pingback数据�
 
 **个人名单**，如下名单是必备的(后续会及时更新)，
 
-- [央行的反洗钱恐怖分子名单](
-
-http://www.pbc.gov.cn/fanxiqianju/135153/135267/index.html)
+- [央行的反洗钱恐怖分子名单](http://www.pbc.gov.cn/fanxiqianju/135153/135267/index.html)
 
 - [公安部的通缉犯名单](http://www.zhuatongji.com/gawtjfmd/)
 - [全国法院失信被执行人名单信息公布与查询](http://shixin.court.gov.cn/)
