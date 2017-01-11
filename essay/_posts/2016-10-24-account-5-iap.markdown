@@ -15,23 +15,14 @@ tags: [支付系统]
 
 ## 为什么要IAP
 应用内支付指使用手机操作系统自带的支付功能来支持支付。目前国内主要的应用内支付有 Google Pay， Apple Pay， 小米支付、华为支付等。 其中Apple Pay是典型的一个应用内支付，Android平台的各种支付也一般是沿用Apple Pay的设计。
-相对来说，应用内支付的用户体验，和微信支付、支付宝相比，还是有一定差距的，但是为什么要开发应用内支付呢？ 这个和苹果的AppStore的审核政策有关。 在官方的 (App Store Review Guidelines)[https://developer.apple.com/app-store/review/guidelines/2016-06-13/] 中， 有如下几条意见：
+相对来说，应用内支付的用户体验，和微信支付、支付宝相比，还是有一定差距的，但是为什么要开发应用内支付呢？ 这个和苹果的AppStore的审核政策有关。 在官方的 [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/2016-06-13/)中， 有如下几条意见：
 
 
-> 1.2 Apps utilizing a system other than the In-App Purchase API (IAP) to purchase content, functionality, or services in an App will be rejected.
+> 1.2 Apps utilizing a system other than the In-App Purchase API (IAP) to purchase content, functionality, or services in an App will be rejected.(在 App 内使用非 IAP 的系统来购买内容、功能或服务将被拒绝。)
 
+>  11.3 Apps using IAP to purchase physical goods or goods and services used outside of the App will be rejected.(IAP 购买实物或者应用外的商品或服务将会被拒绝)
 
-在 App 内使用非 IAP 的系统来购买内容、功能或服务将被拒绝。
-
->  11.3 Apps using IAP to purchase physical goods or goods and services used outside of the App will be rejected.  
-
-
-IAP 购买实物或者应用外的商品或服务将会被拒绝；
-
->  11.4  Apps that use IAP to purchase credits or other currencies must consume those credits within the App 
-
-
-通过 IAP 购买的积分或者其他货币必须只在 App 内使用。
+>  11.4  Apps that use IAP to purchase credits or other currencies must consume those credits within the App (通过 IAP 购买的积分或者其他货币必须只在 App 内使用。)
 
 这问题就来了，如果要购买的服务，即在IOS内使用，也在Android等IOS系统外使用， 那应该是使用规则11.2或者规则11.3来执行？
 比如说视频网站，视频既可以在IOS上看，也可以在Android上看，那是否是需要通过IAP来购买？
@@ -86,15 +77,19 @@ IAP主要提供给周期性订阅的音乐、电子书等内容使用。 一般�
 客户端接收到 Receipt 之后，需要提交到服务器端进行处理，开通权益。 这就来了个问题：Receipt应该在客户端还是服务器端解析？当然需要在服务器端处理，这样可以防止越狱后的一些插件，如IAP Cracker、IAP Free等伪造交易凭证，欺骗苹果服务器，开通权益。 此外，还需注意，客户端和服务器端之间需通过HTTPS以及参数签名等方式来确保通讯安全。 服务器端接收到Receipt之后，首先验证请求的有效性， 然后将Receipt发送到苹果服务器上进行验证和解析。 接收到苹果处理结果后， 将Receipt中的user_id, product_id、purchase_date、transaction_id等做验证和处理。
 
 ## IAP破解和防御
-既然Iap的验证主要是在苹果服务器端和手机客户端进行，并且是使用域名。这简直是为攻击打开了一扇大门，而不仅仅是漏洞。
-早期的IAP内购解锁工具IAP cracker对IAP的破解比较简单粗暴。写过IAP程序的人都知道， 程序中基本都是用transactionState来判断交易是否成功。 transactionState 有四个状态： SKPaymentTransactionStatePurchasing SKPaymentTransactionStatePurchased SKPaymentTransactionStateFailed SKPaymentTransactionStateRestored，  SKPaymentTransactionStatePurchased 表示购买成功了。 只要修改这个变量值，如果客户端应用直接根据交易状态来处理业务流程，那就会收到这个假的交易成功信息，接下来用户就能不花钱得到所买的物品。这个过程，甚至都不需要接入网络。
-另一个工具IAPfree功能更强大，安装使用也复杂很多。它是通过修改DNS，让客户端访问黑客提供的服务器来取代访问苹果服务器，实现所谓的MITM中间人攻击。当用户在客户端触发购买流程时，会被引导到伪装的苹果服务器上，不扣款而直接返回扣款成功收据。用户不需要支付任何资金，客户端能够拿到完整的收据。如果是在客户端处理收据验证也没有任何问题。为了避免用户所使用的设备被封，这些软件甚至可以提供伪造UDID的功能。
+既然Iap的验证主要是在苹果服务器端和手机客户端进行，并且是使用域名。这简直是为攻击打开了一扇大门，而不仅仅是漏洞。  
+
+早期的IAP内购解锁工具IAP cracker对IAP的破解比较简单粗暴。写过IAP程序的人都知道， 程序中基本都是用transactionState来判断交易是否成功。 transactionState 有四个状态： SKPaymentTransactionStatePurchasing SKPaymentTransactionStatePurchased SKPaymentTransactionStateFailed SKPaymentTransactionStateRestored，  SKPaymentTransactionStatePurchased 表示购买成功了。 只要修改这个变量值，如果客户端应用直接根据交易状态来处理业务流程，那就会收到这个假的交易成功信息，接下来用户就能不花钱得到所买的物品。这个过程，甚至都不需要接入网络。  
+
+另一个工具IAPfree功能更强大，安装使用也复杂很多。它是通过修改DNS，让客户端访问黑客提供的服务器来取代访问苹果服务器，实现所谓的MITM中间人攻击。当用户在客户端触发购买流程时，会被引导到伪装的苹果服务器上，不扣款而直接返回扣款成功收据。用户不需要支付任何资金，客户端能够拿到完整的收据。如果是在客户端处理收据验证也没有任何问题。为了避免用户所使用的设备被封，这些软件甚至可以提供伪造UDID的功能。  
+
 为此，苹果特别说明，一定要在服务器端验证用户购买信息，验证内容包括收据签名，证书，产家信息等，确保收据无误后，才能授予权益。如果发现有诈，则将用户拉黑。
 
 ## 两套账户体系
 
-苹果支付的账户体系,当然是以Apple Id为基础的，它允许用户在多台设备上共用一个账户。一台设备上，一般只有一个激活账户。但对应用系统来说，大部分是允许多个账号登陆的。这对续费来说就是个大问题。
-用户以账户A登录后，发起续费，获得权益。然后以账号B登录了，显然，A的权益不会衍生给B。过几天A开始续费了，续费之后，切换到B账号登录，客户端在B账号登录时得到续费的收据并发送给应用服务器。那这算是谁的续费请求？当然是A的。在这个apple id发起的续费请求，所有的收据都会有一个相同的原始交易号original transaction Id。在用户发起订阅时，需要记录这个id和账号的关系，每次续费，需要在解析收据后，根据原始交易号从这里获取真正的充值账户，不能从客户端提交的用户id作为凭据。
+苹果支付的账户体系,当然是以Apple Id为基础的，它允许用户在多台设备上共用一个账户。一台设备上，一般只有一个激活账户。但对应用系统来说，大部分是允许多个账号登陆的。这对续费来说就是个大问题。  
+
+用户以账户A登录后，发起续费，获得权益。然后以账号B登录了，显然，A的权益不会衍生给B。过几天A开始续费了，续费之后，切换到B账号登录，客户端在B账号登录时得到续费的收据并发送给应用服务器。那这算是谁的续费请求？当然是A的。在这个apple id发起的续费请求，所有的收据都会有一个相同的原始交易号original transaction Id。在用户发起订阅时，需要记录这个id和账号的关系，每次续费，需要在解析收据后，根据原始交易号从这里获取真正的充值账户，不能从客户端提交的用户id作为凭据。  
 
 还是这个坑，如果在账户B登录后也发起订阅请求，会怎么样？这个调用将会失败，所以需要阻止用户发起这样的请求。或者设置多个产品副本来让用户购买。
 
