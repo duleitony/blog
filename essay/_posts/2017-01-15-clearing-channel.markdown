@@ -6,7 +6,7 @@ date: 2017-01-15 12:00:00
 author: "shamphone"
 header-img: "img/home-bg-post.jpg"
 catalog: true
-tags: [支付风控]
+tags: [支付清结算]
 
 ---
 上一篇文章还遗留的很多问题，这里我们一步步详细介绍清结算中在渠道侧如何进行。这里的渠道侧，既包括银行，也包括第三方支付以及银联。
