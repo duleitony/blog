@@ -84,7 +84,7 @@ tags: [支付清结算]
 
 如前述文章介绍，我们采用复式借贷记账法。对于分户账，或者说明细账，如下示例：
 
-[![账户结构](http://blog.lixf.cn/img/in-post/clearing-tb-account.jpg)](http://blog.lixf.cn/img/in-post/clearing-tb-account.jpg)
+[![账户结构](http://blog.lixf.cn/img/in-post/clearing-tb-accounting.jpg)](http://blog.lixf.cn/img/in-post/clearing-tb-accounting.jpg)
 
 在这个实例中， 账户中账务相关的结构包括：  
 
