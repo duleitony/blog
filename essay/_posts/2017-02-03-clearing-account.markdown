@@ -101,7 +101,7 @@ tags: [支付清结算]
 
 [![账户结构](http://blog.lixf.cn/img/in-post/clearing-accounts.jpg)](http://blog.lixf.cn/img/in-post/clearing-accounts.jpg)
 
-在存储上，账务相关信息一般是和账户其他信息相互独立处理，处理账务相关信息的子系统被称为为账务子系统或者记账子系统。 
+在存储上，账务相关信息一般是和账户其他信息相互独立处理，处理账务相关信息的子系统被称为账务子系统或者记账子系统。 
 
 ## 三、支付流程
 
@@ -121,7 +121,8 @@ tags: [支付清结算]
 4.  支付系统账务子系统在自己的账户体系中记录小明的这一笔消费支出，给会员卡业务账户增加对应的资金，通知会员卡系统发送卡给小明。  
 5.  支付系统发送消息异步通知会计系统进行记账。  
 
-这5个步骤都是线上的流程，我们逐步分析这里涉及到的对象。 
+这5个步骤都是线上的流程，在此过程中，各个子系统之间的交互如下图所示。 我们逐步分析这里涉及到的对象。 
+[![记账流程](http://blog.lixf.cn/img/in-post/clearing-accounting.jpg)](http://blog.lixf.cn/img/in-post/clearing-accounting.jpg)
 
 ## 四、支付订单
 
