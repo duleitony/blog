@@ -105,5 +105,5 @@ Jira也是一个不错的需求管理工具。产品经理可以通过Jira来执
 验证项目是否部署成功，一种方式是在日志中打桩，grep到这个日志，即意味着系统成功启动；一种方式是调用接口来验证是否成功。 
 
 部署目录参考：  
-[![目录结构](http://blog.lixf.cn/img/in-post/process-deploy.jpg)](http://blog.lixf.cn/img/in-post/process-deploy.jpg)
+[![目录结构](http://blog.lixf.cn/img/in-post/process-deploy.png)](http://blog.lixf.cn/img/in-post/process-deploy.png)
 
