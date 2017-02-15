@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "支持微服务开发的软件过程"
+title: "微服务开发的软件过程"
 subtitle: "支付基础设施-1"
 date: 2017-02-14 12:00:00
 author: "shamphone"
