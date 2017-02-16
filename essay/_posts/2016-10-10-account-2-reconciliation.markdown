@@ -124,7 +124,7 @@ tags: [支付系统]
 ## 二、对账架构
 
 基于微服务的对账系统实现的一个参考架构如下：
-[![arch](http://blog.lixf.cn/img/in-post/checking-arch.png)](http://blog.lixf.cn/img/in-post/checking-arch.png)
+[![arch](http://blog.lixf.cn/img/in-post/checking-arch.jpg)](http://blog.lixf.cn/img/in-post/checking-arch.jpg)
 
 ### 2.1 对账单下载
 
@@ -138,4 +138,4 @@ tags: [支付系统]
 
 如上所述，轧账MapReduce程序在Hadoop上运行，以交易号为Key，核对渠道订单和本地交易记录之间的差异，输出差异记录。最后将差异记录导入到差异表中。
 
-
+总之，对账工作，即复杂也不复杂。需要细心，对业务要有深入的了解，并选择合适的架构。
