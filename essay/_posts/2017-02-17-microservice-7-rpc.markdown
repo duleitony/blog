@@ -60,6 +60,7 @@ namespace java com.phoenix.service
  * 提供关于XXX实体的增删改查基本操作。 
 **/
 service XXXRpcService {
+
 	/**
 	 * 创建实体
 	 * 输入参数:
@@ -72,6 +73,72 @@ service XXXRpcService {
 	 *  3. notFoundException：  必填的参数没有提供。
 	 **/
 	binary createXXX(1: binary create_xxx_request) throws (1: Errors.UserException userException, 2: Errors.systemException, 3: Errors.notFoundException)
+
+
+	/**
+	 * 更新实体
+	 * 输入参数:
+	 *   1. updateXXXRequest: 更新请求，支持同时更新多个实体；
+	 * 输出参数
+	 *   updateXXXResponse: 更新成功，返回被更行的实体的ID列表；
+	 * 异常
+	 *  1. userException:		输入的参数有误；
+	 *  2. systemExeption:		服务器端出错导致无法创建； 
+	 *  3. notFoundException：  该实体在服务器端没有找到。
+	 **/
+	binary updateXXX(1: binary update_xxx_request) throws (1: Errors.UserException userException, 2: Errors.systemException, 3: Errors.notFoundException)
+
+	/**
+	 * 删除实体
+	 * 输入参数:
+	 *   1. removeXXXRequest: 删除请求，按照id来删除，支持一次删除多个实体；
+	 * 输出参数
+	 *   removeXXXResponse: 删除成功，返回被删除的实体的ID列表；
+	 * 异常
+	 *  1. userException:		输入的参数有误；
+	 *  2. systemExeption:		服务器端出错导致无法创建； 
+	 *  3. notFoundException：  该实体在服务器端没有找到。
+	 **/
+	binary removeXXX(1: binary remove_xxx_request) throws (1: Errors.UserException userException, 2: Errors.systemException, 3: Errors.notFoundException)
+
+	/**
+	 * 根据ID获取实体
+	 * 输入参数:
+	 *   1. getXXXRequest: 获取请求，按照id来获取，支持一次获取多个实体；
+	 * 输出参数
+	 *   getXXXResponse: 返回对应的实体列表；
+	 * 异常
+	 *  1. userException:		输入的参数有误；
+	 *  2. systemExeption:		服务器端出错导致无法创建； 
+	 *  3. notFoundException：  该实体在服务器端没有找到。
+	 **/
+	binary getXXX(1: binary get_xxx_request) throws (1: Errors.UserException userException, 2: Errors.systemException, 3: Errors.notFoundException)
+	
+	/**
+	 * 查询实体
+	 * 输入参数:
+	 *   1. queryXXXRequest: 查询条件；
+	 * 输出参数
+	 *   queryXXXResponse: 返回对应的实体列表；
+	 * 异常
+	 *  1. userException:		输入的参数有误；
+	 *  2. systemExeption:		服务器端出错导致无法创建； 
+	 *  3. notFoundException：  该实体在服务器端没有找到。
+	 **/
+	binary queryXXX(1: binary query_xxx_request) throws (1: Errors.UserException userException, 2: Errors.systemException, 3: Errors.notFoundException)
+
+	/**
+	 * 统计符合条件的实体的数量
+	 * 输入参数:
+	 *   1. countXXXRequest: 查询条件；
+	 * 输出参数
+	 *   countXXXResponse: 返回对应的实体数量；
+	 * 异常
+	 *  1. userException:		输入的参数有误；
+	 *  2. systemExeption:		服务器端出错导致无法创建； 
+	 *  3. notFoundException：  该实体在服务器端没有找到。
+	 **/
+	binary countXXX(1: binary count_xxx_request) throws (1: Errors.UserException userException, 2: Errors.systemException, 3: Errors.notFoundException)
 
 }
 
