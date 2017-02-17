@@ -48,7 +48,8 @@ AccountService
 
 由于基础服务主要是解决数据读写问题，所以从使用的角度，对外提供的接口，可以参考数据库操作，标准化为增、删、改、查、统计等基本接口。接口采用 操作+实体来命名，如createOrder。 接口的输入输出参数采用 接口名+Request 和 接口名Response 的规范来命名。 这种方式使得接口易于使用和管理。 
 
-file: xxx_rpc_service.thrift
+file: xxx_rpc_service.thrift  
+
 ```hbs
 /**
  * 这里是版权申明
@@ -74,14 +75,7 @@ service XXXRpcService {
 
 }
 
-```hbs
-
-**新增数据createXXX**
-
-实现新创建数据并持久化到数据中。 
-
-输入： CreateXXXRequest， 支持一次输入多个对象批量创建。 
-输出： CreateXXXResponse， 输出成功创建的对象的ID。
+```
 
 ### 2.3 异常设计
 
