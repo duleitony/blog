@@ -187,6 +187,45 @@ message CreateXXXResponse {
 
 ### 2.4 异常设计
 
+RPC接口也不需要太复杂的异常，一般是定义三类异常。
+
+file errors.thrift
+
+```hbs
+
+/**
+ * 由于调用方的原因引起的错误， 比如参数不符合规范、缺乏必要的参数，没有权限等。
+ * 这种异常一般是可以重试的。 
+ *
+**/
+
+exception UserException {
+	1： required ErrorCode error_code;
+	2:  optional string message; 
+}
+
+/**
+ * 由于服务器端发生错误导致的，比如数据库无法连接。这也包括QPS超过限额的情况，这时候rateLimit返回分配给的QPS上限；
+ *
+**/
+
+exception systemException {
+	1： required ErrorCode error_code;
+	2:  optional string message; 
+	3:  i32 rateLimit;
+}
+
+/**
+ * 根据给定的ID或者其他条件无法找到对象。
+ *
+**/
+
+exception systemException {
+	1:  optional string identifier; 
+}
+
+
+```
 
 ## 三、服务SDK 
 
