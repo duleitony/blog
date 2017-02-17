@@ -144,7 +144,48 @@ service XXXRpcService {
 
 ```
 
-### 2.3 异常设计
+### 2.3 参数设计
+
+每个方法的输入输出参数，采用protobuf来表示。 
+
+
+file: xxx_service.protobuf
+
+```hbs
+
+/**
+ *
+ * 这里是版权申明
+**/
+
+option java_package = "com.phoenix.service";
+import "entity.proto";
+import "taglib.proto";
+
+/**
+ * 创建实体的请求
+ *
+**/
+message CreateXXXRequest {
+    
+    optional string user_name = 1;  //访问这个接口的用户  
+    optional string password = 2;  //访问这个接口的密码    
+    repeated XXXX xxx = 21; // 实体内容；
+}
+
+/**
+ * 创建实体的结果响应
+ *
+ **/
+message CreateXXXResponse {
+
+	 repeated int64 id = 11;//成功创建的实体的ID列表  
+}
+
+
+```
+
+### 2.4 异常设计
 
 
 ## 三、服务SDK 
