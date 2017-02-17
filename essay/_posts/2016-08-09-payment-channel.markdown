@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "支付渠道那些事"
-subtitle: "从SSH单体应用到微服务架构-5"
+subtitle: "支付系统设计-10"
 date: 2016-08-09 12:00:00
 author: "shamphone"
 header-img: "img/home-bg-post.jpg"

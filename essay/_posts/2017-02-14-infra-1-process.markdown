@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "微服务开发的软件过程"
-subtitle: "支付基础设施-1"
+subtitle: "从SSH单体应用到微服务架构-6"
 date: 2017-02-14 12:00:00
 author: "shamphone"
 header-img: "img/home-bg-post.jpg"
 catalog: true
-tags: [Fintech]
+tags: [微服务]
 
 ---
 
