@@ -10,67 +10,84 @@ tags: [微服务]
 
 ---
 
->  不少同学询问到如何实施微服务，特别是对项目数量增加的担忧。 在支付渠道设计一文中提到，可以按照渠道来划分项目，一个渠道一个项目，有同学认为这会导致项目太多无法管理。 本文要回答这个问题，在微服务中，我们是如何管理项目的，即微服务的软件过程。 
 
 ## 一、RPC技术选型
 
-### Apache Thrift 
+**Apache Thrift** 
 
-### Dubbo  
+**Dubbo**  
 
-### Google Protobuf 
+**Google Protobuf**
+
+
 
 ## 二、基础服务设计
 
-### 2.1 文件名和编码
+基础服务是微服务的服务栈中最底层的模块， 基础服务直接和数据存储打交道，提供数据增删改查的基本操作。
+
+### 2.1 设计规范
+
+**文件规范**
 
 rpc接口文件名以 xxx_rpc_service.thrift 来命名；   
 protobuf参数文件名以 xxx_service.proto 来命名。 
 
-这两种文件全部使用UTF-8编码
+这两种文件全部使用UTF-8编码。
 
-### 2.2 文件结构
+**命名规范**
 
-文件头需要包含公司版权信息。比如Evernote公司的版权申明：
+服务名称以 “XXXXService” 的格式命名， XXXX是实体，必须是名词。以下是合理的接口名称。
 
 ```hbs
-
-/*
- * Copyright 2007-2016 Evernote Corporation. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- *
- * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
- * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
- * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
- * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
- * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
+OrderService
+AccountService
 
 ```
 
-### 2.1 接口设计规范
+### 2.2 方法设计
 
-2.1.1 服务名称以 “XXXXService” 的格式命名， XXXX是实体，必须是名词。以下是合理的接口名称：
+由于基础服务主要是解决数据读写问题，所以从使用的角度，对外提供的接口，可以参考数据库操作，标准化为增、删、改、查、统计等基本接口。接口采用 操作+实体来命名，如createOrder。 接口的输入输出参数采用 接口名+Request 和 接口名Response 的规范来命名。 这种方式使得接口易于使用和管理。 
+
+file: xxx_rpc_service.thrift
+```hbs
+/**
+ * 这里是版权申明
+ **/
+
+namespace java com.phoenix.service 
+/**
+ * 提供关于XXX实体的增删改查基本操作。 
+**/
+service XXXRpcService {
+	/**
+	 * 创建实体
+	 * 输入参数:
+	 *   1. createXXXRequest: 创建请求，支持创建多个实体；
+	 * 输出参数
+	 *   createXXXResponse: 创建成功，返回创建实体的ID列表；
+	 * 异常
+	 *  1. userException:		输入的参数有误；
+	 *  2. systemExeption:		服务器端出错导致无法创建； 
+	 *  3. notFoundException：  必填的参数没有提供。
+	 **/
+	binary createXXX(1: binary create_xxx_request) throws (1: Errors.UserException userException, 2: Errors.systemException, 3: Errors.notFoundException)
+
+}
+
+```hbs
+
+**新增数据createXXX**
+
+实现新创建数据并持久化到数据中。 
+
+输入： CreateXXXRequest， 支持一次输入多个对象批量创建。 
+输出： CreateXXXResponse， 输出成功创建的对象的ID。
+
+### 2.3 异常设计
 
 
-OrderService， AccountService
-
-### 2.2 参数设计规范
+## 三、服务SDK 
 
 
-### SDK规范
+## 四、接口升级
+
