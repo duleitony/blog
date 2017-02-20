@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基础服务的设计与RPC"
+title: "微服务与RPC"
 subtitle: "从SSH单体应用到微服务架构-7"
 date: 2017-02-17 12:00:00
 author: "shamphone"
@@ -9,6 +9,7 @@ catalog: true
 tags: [微服务]
 
 ---
+
 
 ## 一、RPC vs Restful
 
@@ -137,7 +138,7 @@ RPC API网关在实现上，难点在于如何做到服务无关。我们知道�
 Netflix Hystrix提供不错的熔断和限流的实现，参考其在[GitHub上的项目介绍](https://github.com/Netflix/Hystrix/)。这里简单说下熔断和限流实现原理。 
 
 熔断一般采用电路熔断器模式(Circuit Breaker Patten)。当某个服务发生错误，每秒错误次数达到阈值时，不再响应请求，直接返回服务器忙的错误给调用方。 延迟一段时间后，尝试开放50%的访问，如果错误还是高，则继续熔断；否则恢复到正常情况。
-[![rpc-circuit](http://blog.lixf.cn/img/in-post/rpc-ciruit.jpg)](http://blog.lixf.cn/img/in-post/rpc-ciruit.jpg)
+[![rpc-circuit](http://blog.lixf.cn/img/in-post/rpc-circuit.jpg)](http://blog.lixf.cn/img/in-post/rpc-circuit.jpg)
 
 限流指按照访问方、IP地址或者域名等方式对服务访问进行限制，一旦超过给定额度，则禁止其访问。 除了使用Hystrix，如果要自己实现，可以考虑使用使用[Guava RateLimiter]( http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/util/concurrent/RateLimiter.html)
 
