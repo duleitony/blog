@@ -15,7 +15,6 @@ tags: [微服务]
 - [为什么要重构到微服务](http://blog.lixf.cn/essay/2016/08/05/microservice-1/)
 - [重构中的天时地利任何](http://blog.lixf.cn/essay/2016/08/05/microservice-2/)
 - [重构的准备工作](http://blog.lixf.cn/essay/2016/08/06/microservice-3/)
-- [支付渠道那些事](http://blog.lixf.cn/essay/2016/08/09/payment-channel/)
 - [使用微服务架构重构支付网关](http://blog.lixf.cn/essay/2016/09/01/microservice-4/)
 
 这篇文章从实操层面详细介绍如何对SSH框架的支付系统实施具体的技改。这里不涉及具体代码写法，重点在于说明方法论。虽然以SSH(Apache Struts + Springframework + Hibernate) 框架为例，也适合各种常用的web架构 (Apache Struts/Spring MVC / Apache Velocity + Springframework + Mybatis/Hibernate) 。
