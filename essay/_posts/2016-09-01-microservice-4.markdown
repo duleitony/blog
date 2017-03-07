@@ -55,9 +55,9 @@ tags:		[微服务]
 
 原支付网关难以维护的一个重要原因是其所承载的功能过多。而签约、支付等操作的实现，却和支付产品有密切的关系。不同的产品，其对应的操作所使用的参数和流程也不一样。我们首先实现了快捷支付产品。新网关接收到请求后，根据用户所选择的支付类型，分发到快捷支付产品接口。快捷支付产品接口调用工行借记卡通道来执行支付， 通道最终落地到工行接口的调用来实现支付。 结果也是按照这个顺序逆向传递会网关接口，并最终发送给调用方。 在这里面，支付网关负责分发、验签等基本功能，支付产品负责参数校验、路由、生成交易记录等功能。最终的支付操作是落地到支付渠道去执行。 
 
-[![链式模式](http://blog.lixf.cn/img/in-post/gateway-chain.png)](http://blog.lixf.cn/img/in-post/gateway-chain.png)
+[![链式模式](http://blog.lixf.cn/img/in-post/gateway-chain.jpg)](http://blog.lixf.cn/img/in-post/gateway-chain.jpg)
 
-## 网关拆分 （Proxy Pattern）
+## 网关拆分(Proxy Pattern)
 
 在快捷支付方式上对这个处理流程验证成功后，我们进一步对网关进行拆分。我们采用完善一个、接入一个的原则，在保留旧网关的功能的同时，开发新的网关和产品。等所有流量都打到新网关上去之后，旧网关就直接废弃了。 为了达到这个目标，我们引入了代理模式：
 
@@ -69,7 +69,7 @@ tags:		[微服务]
 
 [![代理模式](http://blog.lixf.cn/img/in-post/gateway-proxy.jpg)](http://blog.lixf.cn/img/in-post/gateway-proxy.jpg)
 
-## 支付产品(Aggregator Pattern)
+## 支付产品 (Aggregator Pattern)
 
 支付产品是对原有支付网关的业务流程实现的一个重构，按照各个支付产品所支持的功能以及流程来简化原混合在一起的设计。比如快捷支付需要签约和支付，而网银支付则不需要签约。 在支付产品本身的实现上，我们使用的是聚合模式。 
 
@@ -80,6 +80,15 @@ tags:		[微服务]
 支付产品中调用的各个服务，包括支付方式管理， 支付服务管理，支付路由管理、支付记录管理等，都被重构为微服务，在支付产品的实现中，通过Aggregator 模式进行调用。
 
 [![聚合模式](http://blog.lixf.cn/img/in-post/gateway-aggregator.jpg)](http://blog.lixf.cn/img/in-post/gateway-aggregator.jpg)  
+
+在支付产品的流程中，首先需要对参数进行校验，校验成功后，调用风控检查该交易是否可以放行。这两个操作，在处理上可以并行，使用的是分支模式。 
+[![分支模式](http://blog.lixf.cn/img/in-post/pattern-branch.png)](http://blog.lixf.cn/img/in-post/pattern-branch.png)  
+
+> 分支模式是聚合模式的扩展，可以允许同时调用两个或者更多的微服务。 
+
+[![分支模式](http://blog.lixf.cn/img/in-post/gateway-branch.jpg)](http://blog.lixf.cn/img/in-post/gateway-branch.png)  
+
+如上，采用分支模式， 使得数据校验和风控可以并发执行。由于风控相对耗时较长，而订单中需要校验的数据较多，这两个操作有必要并发执行。 
 
 ## 支付通道 (Aggregator Pattern) 
 
