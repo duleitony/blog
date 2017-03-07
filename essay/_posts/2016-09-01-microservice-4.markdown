@@ -83,7 +83,9 @@ tags:		[微服务]
 
 ## 支付通道 (Aggregator Pattern) 
 
-支付路由根据用户选择的支付方式对支付通道进行筛选，选取合适的支付通道。支付产品调用该通道的接口来最终落地完成支付服务。 
+支付路由根据用户选择的支付方式对支付通道进行筛选，选取合适的支付通道。支付产品调用该通道的接口来最终落地完成支付服务。 每个支付通道对接也被实现为微服务，在支付产品中调用。 
+
+[![聚合模式](http://blog.lixf.cn/img/in-post/gateway-agg-channels.jpg)](http://blog.lixf.cn/img/in-post/gateway-agg-channels.jpg)  
 
 ## 通知商户 (Asynchronous Messaging Pattern)
 
