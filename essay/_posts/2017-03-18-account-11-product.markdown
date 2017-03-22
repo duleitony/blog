@@ -103,7 +103,7 @@ tags: [支付系统]
 ## 业务流程
 
 上述操作，除了对账、查单外，每个操作实现的主流程，一般会包括参数校验，支付路由，生成订单，风险评估，调用渠道服务，更新订单和发送消息这7步，对于一些比较复杂的服务，还会涉及到异步同通知处理的步骤。
-
+[![Product workflow](http://blog.lixf.cn/img/in-post/product-workflow.jpg)](http://blog.lixf.cn/img/in-post/product-workflow.jpg)
 **1. 执行参数校验**
 
 所有的支付操作，都需要对输入执行参数校验，避免接口受到攻击。
