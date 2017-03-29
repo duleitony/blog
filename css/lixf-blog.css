@@ -1094,15 +1094,15 @@ img::-moz-selection {
 }
 
 #book-title {
-  font-size: 64px;
+  font-size: 48px;
   line-height: 1.3;
   margin-top: 30px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-weight: bolder;
 }
 
 #book-subtitle {
-  font-size: 48px;
+  font-size: 36px;
   line-height: 1.3;
   margin: 10px;
   font-weight: bold;
