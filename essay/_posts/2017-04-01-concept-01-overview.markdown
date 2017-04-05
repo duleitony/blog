@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "支付系统概述"
+title: "交易与支付"
 subtitle: "支付概述-01"
 date: 2017-04-01 12:00:00
 author: "shamphone"
@@ -48,6 +48,7 @@ tags: [Fintech]
 3. 这过程中，A行的资金并不会直接打到B行，而是到了一定时间（每天凌晨），开始执行清分，计算应该付给B行的钱，并扣除应该从B行这边来接收的钱，最后计算出来出来支付（收到）给B行的资金，完成清分。 
 4. A行将清分结果对交易数据进行净额轧差，提交并完成资金划拨给B行，这就完成了清算。 
 
+[![清算](http://blog.lixf.cn/img/in-post/concept-overview-cl.jpg)](http://blog.lixf.cn/img/in-post/concept-overview-cl.jpg)
 如果有很多银行，每个银行都需要和对方执行清结算，这个很烦。于是，国家成立专门的机构来做这个事情，这就是央行，以及后来的银联。国内的支付清算体系，将在下文中详细介绍。 
 
 ## 支付方式
