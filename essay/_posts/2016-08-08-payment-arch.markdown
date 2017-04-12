@@ -27,16 +27,16 @@ tags: [支付系统设计]
 [![某金服产品架构](http://blog.lixf.cn/img/in-post/arch-alipay-checking.png)](http://blog.lixf.cn/img/in-post/arch-alipay-checking.png)
 另一个亮点是柔性事务处理，利用消息机制来实现跨系统的事务处理，避免数据库锁导致的性能问题。
 
-**京东金融**
+**京东金融**  
 来自[京东支付平台总体架构设计](http://www.360doc.com/content/16/0724/20/19476362_578094252.shtml) 。
 [![某东金融产品架构](http://blog.lixf.cn/img/in-post/arch_jd.png)](http://blog.lixf.cn/img/in-post/arch_jd.png)
 京东金融是在网银在线的基础上发展起来的。 网银在线的原班技术人员有不少来自易宝公司，在京东收购之后，又引入了支付宝的人才。因而从架构上受这两个公司的影响很大。 
 
-**去哪儿**
+**去哪儿**  
 来自[去哪儿公司分享的支付产品架构](https://sanwen8.cn/p/540ht7K.html)
 [![Q旅游公司产品架构](http://blog.lixf.cn/img/in-post/arch_qunar.png)](http://blog.lixf.cn/img/in-post/arch_qunar.png)
 
-**美团**
+**美团**  
 来自[美团的支付平台规划架构](https://wenku.baidu.com/view/7daa609d376baf1ffd4fad09.html) 。这是2015年的文档。 2016年美团才拿到支付牌照。 从这个架构，大家也能知道为什么美团必须拿到支付牌照。 
 [![某团支付系统产品架构](http://blog.lixf.cn/img/in-post/arch_meituan.png)](http://blog.lixf.cn/img/in-post/arch_meituan.png)
 
