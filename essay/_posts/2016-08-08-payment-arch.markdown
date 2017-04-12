@@ -18,19 +18,27 @@ tags: [支付系统设计]
 ## 支付的典型架构
 
 每个公司根据其业务和公司发展的不同阶段，所设计的支付系统也会有所不同。我们先看看互联网公司的一些典型的支付系统架构。 
+
+**支付宝**  
 先看看业内最强的支付宝系统，[支付宝的支付系统整体架构设计](http://www.woshipm.com/pmd/160822.html)
 [![某金服产品架构](http://blog.lixf.cn/img/in-post/arch_alipay.png)](http://blog.lixf.cn/img/in-post/arch_alipay.png)
+这个整体架构上并没有与众不同之处。在模块划分上，这个图显示的是最顶层的划分，也无法告知更多细节。 但支付宝架构强点在两个方面，一个是账务处理，分为内外两个子系统，外部子系统是单边账，内部子系统走复式记账。 不少支付平台是从这里得到启发来搞定的对账系统。 
+[![某金服产品架构](http://blog.lixf.cn/img/in-post/arch_alipay_accounting.png)](http://blog.lixf.cn/img/in-post/arch_alipay_accounting.png)
+[![某金服产品架构](http://blog.lixf.cn/img/in-post/arch-alipay-checking.png)](http://blog.lixf.cn/img/in-post/arch-alipay-checking.png)
+另一个亮点是柔性事务处理，利用消息机制来实现跨系统的事务处理，避免数据库锁导致的性能问题。
 
+**京东金融**
+来自[京东支付平台总体架构设计](http://www.360doc.com/content/16/0724/20/19476362_578094252.shtml) 。
+[![某东金融产品架构](http://blog.lixf.cn/img/in-post/arch_jd.png)](http://blog.lixf.cn/img/in-post/arch_jd.png)
+京东金融是在网银在线的基础上发展起来的。 网银在线的原班技术人员有不少来自易宝公司，在京东收购之后，又引入了支付宝的人才。因而从架构上受这两个公司的影响很大。 
 
-来自[美团的支付平台规划架构](https://wenku.baidu.com/view/7daa609d376baf1ffd4fad09.html)  
-[![某团支付系统产品架构](http://blog.lixf.cn/img/in-post/arch_meituan.png)](http://blog.lixf.cn/img/in-post/arch_meituan.png)
-
-
+**去哪儿**
 来自[去哪儿公司分享的支付产品架构](https://sanwen8.cn/p/540ht7K.html)
 [![Q旅游公司产品架构](http://blog.lixf.cn/img/in-post/arch_qunar.png)](http://blog.lixf.cn/img/in-post/arch_qunar.png)
 
-来自[京东支付平台总体架构设计](http://www.360doc.com/content/16/0724/20/19476362_578094252.shtml) 
-[![某东金融产品架构](http://blog.lixf.cn/img/in-post/arch_jd.png)](http://blog.lixf.cn/img/in-post/arch_jd.png)
+**美团**
+来自[美团的支付平台规划架构](https://wenku.baidu.com/view/7daa609d376baf1ffd4fad09.html) 。这是2015年的文档。 2016年美团才拿到支付牌照。 从这个架构，大家也能知道为什么美团必须拿到支付牌照。 
+[![某团支付系统产品架构](http://blog.lixf.cn/img/in-post/arch_meituan.png)](http://blog.lixf.cn/img/in-post/arch_meituan.png)
 
 
 这些架构文档全部来自互联网公开资料。 对于架构是否真实反映实际系统情况，需要大家自行判断。 我们以这些文档为基础，分析支付系统的应有的软件架构。 
