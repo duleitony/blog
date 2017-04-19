@@ -22,7 +22,8 @@ tags: [支付系统设计]
 **支付宝**  
 先看看业内最强的支付宝系统，[支付宝的支付系统整体架构设计](http://www.woshipm.com/pmd/160822.html)
 [![某金服产品架构](http://blog.lixf.cn/img/in-post/arch_alipay.png)](http://blog.lixf.cn/img/in-post/arch_alipay.png)
-这个整体架构上并没有与众不同之处。在模块划分上，这个图显示的是最顶层的划分，也无法告知更多细节。 但支付宝架构强点在两个方面，一个是账务处理，分为内外两个子系统，外部子系统是单边账，内部子系统走复式记账。 不少支付平台是从这里得到启发来搞定的对账系统。 
+这个整体架构上并没有与众不同之处。在模块划分上，这个图显示的是最顶层的划分，也无法告知更多细节。 但支付宝架构文档有两个搞支付平台设计的人必须仔细揣摩的要点。
+一个是账务处理。在记账方面，涉及到内外两个子系统，外部子系统是单边账，满足线上性能需求；内部子系统走复式记账，满足财务需求。在清结算这个章节中也是基于这个模型来详细介绍如何记账、对账和平账。 
 [![某金服产品架构](http://blog.lixf.cn/img/in-post/arch_alipay_accounting.png)](http://blog.lixf.cn/img/in-post/arch_alipay_accounting.png)
 [![某金服产品架构](http://blog.lixf.cn/img/in-post/arch-alipay-checking.png)](http://blog.lixf.cn/img/in-post/arch-alipay-checking.png)
 另一个亮点是柔性事务处理，利用消息机制来实现跨系统的事务处理，避免数据库锁导致的性能问题。
