@@ -2,7 +2,7 @@
 layout:     post      
 title:      "中国人民银行关于落实个人银行账户分类管理制度的通知"      
 subtitle:   "银发（2016）302号"      
-date:       2015-12-25 12:00:00      
+date:       2016-11-25 12:00:00      
 author:     "shamphone"      
 header-img: "img/home-bg-post.jpg"      
 catalog:    true      
