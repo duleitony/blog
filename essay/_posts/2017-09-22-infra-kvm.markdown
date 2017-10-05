@@ -1,0 +1,272 @@
+---
+layout: post
+title: "虚机安装与配置"
+subtitle: "支付系统基础架构-1"
+date: 2017-09-22 12:00:00
+author: "shamphone"
+header-img: "img/home-bg-post.jpg"
+catalog: true
+tags: [支付系统]
+---
+
+## 安装Centos 
+
+Linux的开源操作系统，可以选择Ubuntu， Centos等。 这里以Centos为例来介绍支付微服务的虚机安装与配置过程。 
+
+下载Centos7.4， [直接从官网下载every thing的版本](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1708.iso)， 是一个IOS文件，这里下载的是Everything的版本。 
+
+制作一个U盘启动盘用于安装操作系统，[使用UltraIso软件来制作](http://www.upantool.com/qidong/2011/UltraISO_v9.5.0.2800.html)。安装完成后，
+1. 首先选择文件--打开，把下载的ISO文件加载进来，
+2. 选择工具-写入磁盘镜像，将IOS文件写入到u盘。
+3. 将U盘的名称“centos_x86_64” 修改为 centos，为了方便以后的安装。
+
+修改BIOS，让它从U盘启动。
+第一次安装失败，[解决方案参看这里](http://blog.csdn.net/hexuan1/article/details/46808991), 提示 “Warning: /dev/root does not exist, could not boot”。问题是木有找到你的U盘，这个配置是需要在上一步需要完成的，但在上一步我们并不知道U盘的文件名，所以索性在这一步查看一下U盘的设备名，然后再回到上一步完成配置。
+
+1. 在#后面输入：cd /dev，然后所有设备列表，其中sda是我的硬盘对应的文件名（我机子只有一块硬盘），所以sdbX是U盘对应的文件名了，可以看到是sdb4。
+2. 确认盘符之后reboot重启。 
+3. 回到安装选择界面，此时移动鼠标选择“Install CentOS 7”，然后按下Tab键，在屏幕下方会出现vmlinuz的配置信息。
+4. 修改该信息
+
+``` javascript
+initrd=initrd.imginst.stage2=<strong>hd:LABEL=CentOS\x207\x20x86_64 rd.live.check</strong> quiet
+```
+
+改为：
+```
+vmlinuz initrd=initrd.img inst.stage2=<strong>hd:/dev/sdb4</strong> quite
+```
+
+sdb4是第一步确认的移动硬盘的盘符
+
+5. 修改完成后按回车键进入图形界面引导安装
+
+
+## 挂载U盘
+
+1.使用fdisk -l命令查看磁盘情况
+
+```ruby
+[root@localhost liuyao]# fdisk -l
+
+磁盘 /dev/sda：1000.2 GB, 1000204886016 字节，1953525168 个扇区
+……（此处为电脑内硬盘信息，省略）
+
+磁盘 /dev/sdb：16.0 GB, 16005464064 字节，31260672 个扇区
+Units = 扇区 of 1 * 512 = 512 bytes
+扇区大小(逻辑/物理)：512 字节 / 512 字节
+I/O 大小(最小/最佳)：512 字节 / 512 字节
+磁盘标签类型：dos
+磁盘标识符：0xcad4ebea
+
+  设备 Boot      Start        End      Blocks  Id  System
+/dev/sdb4  *        256    31260671    15630208    7  HPFS/NTFS/exFAT
+
+```
+
+可以看到，U盘磁盘为sdb，用sdb4来表示U盘内容区域
+
+2.使用mount命令挂载U盘，挂载位置为/mnt/udisk。若/mnt/udisk文件夹不存在，则新建
+
+```ruby
+[root@localhost liuyao]# mkdir -p /mnt/udisk
+[root@localhost liuyao]# ls /mnt
+cdrom  udisk
+```
+
+mkdir参数-p表示如文件夹已存在，则不新建，使用该文件夹
+
+3. 挂载U盘
+
+```ruby
+[root@localhost udisk]# mount -t ntfs-3g /dev/sdb4 /mnt/udisk/
+[root@localhost udisk]# ls /mnt/udisk/
+00Job  01Joy  02BigData  System Volume Information
+```
+
+若此时出现问题：未知的文件系统类型“ntfs”，解决方法见下面问题1。
+
+4.使用完U盘后，记得取消挂载，否则容易造成数据丢失
+
+```ruby
+[root@localhost udisk]# umount /mnt/udisk/
+```
+
+### 使用ISO作为本地repo源
+
+http://blog.csdn.net/github_38358734/article/details/70212412
+
+1. 上传centos7光盘镜像到指定目录下（这里定为/usr/local/src）
+2. 挂载镜像文件
+
+```ruby
+mkdir /media/cdrom # 新建光盘目录；
+mount -t iso9660 -o loop /usr/local/src/CentOS-7.0-1406-x86_64-Everything.iso /media/cdrom/ #挂载镜像文件
+```
+
+3. 设置开机自动挂载系统镜像文件
+编辑 /etc/fstab 文件
+```ruby
+vi /etc/fstab
+```
+添加如下内容：
+
+```ruby
+/usr/local/src/CentOS-7.0-1406-x86_64-DVD.iso /media/cdrom/ iso9660 defaults,ro,loop 0 0
+```
+
+保存并退出, 注：iso9660 CD-ROM光盘的标准文件系统
+
+```ruby
+mount -l
+```
+
+4. 配置本地yum源文件；
+
+```ruby
+vim /etc/yum.repos.d/centos7-media.repo
+```
+
+设置如下内容
+```ruby
+[centos7-media]
+name=Centos linux 7.0 # 自己定义
+baseurl=file:///media/cdrom # 本地镜像文件路径
+enabled=1 # 1为启动yum源，0为禁用
+gpgcheck=1 # 1为检查GPG-KEY，0为不检查
+gpgkey=file:///media/cdrom/RPM-GPG-KEY-CentOS-7 #GPG-KEY文件路径
+yum –disablerepo=* –enablerepo=centos7-media clean all #清除缓存
+yum –disablerepo=* –enablerepo=centos7-media makecache #缓存本地yum源包信息
+yum –disablerepo=* –enablerepo=centos7-media install net-tools#使用镜像源安装软件
+```
+
+
+##配置桥接
+
+在centos7.3里安装 Xen 或安装 KVM 后，会发现网络接口里多了一个叫做 virbr0 的虚拟网络接口，并且会自动获得一个私有地址。
+
+这是由于安装和启用了 libvirt 服务后生成的，libvirt 在服务器host上生成一个 virtual network switch (virbr0)，host 上所有的虚拟机（guests）通过这个 virbr0 连起来。默认情况下 virbr0 使用的是 NAT 模式（采用 IP Masquerade），所以这种情况下 guest 通过 host 才能访问外部。
+大多数时候我们虚拟机使用的是 bridge（网桥）直接连到局域网里，所以这个 virbr0 不是必须的（注：不要搞混淆了，bridge 和这里的 virbr0 bridge 是互不相干的）。
+那么如何关掉这个 virbr0 呢？
+我们可以先 net-destroy 然后 net-undefine，最后别忘了重启 libvirtd 让设置生效，这样就可以了。
+
+```ruby
+
+# virsh net-list
+Name                State      Autostart
+-----------------------------------------
+default              active    yes
+# virsh net-destroy default
+Network default destroyed
+# virsh net-undefine default
+Network default has been undefined
+# service libvirtd restart
+
+```
+
+## KVM虚机管理
+
+### 显示正在运行的虚拟机
+```ruby
+[root@kvm ~]# virsh list
+ Id Name State
+----------------------------------------------------
+```
+
+###显示所有虚拟机
+```ruby
+[root@kvm ~]# virsh list --all
+ Id Name State
+----------------------------------------------------
+ - centos shut off
+ - CentOS6.5 shut off
+ - CentOS6u7 shut off
+```
+
+### 启动名字为CentOS6.5的虚拟机
+
+```ruby
+[root@kvm ~]# virsh start CentOS6.5
+```
+
+### 关闭名字为CentOS6.5的虚拟机
+
+```ruby
+[root@kvm ~]# virsh shutdown CentOS6.5
+```
+
+### 强制关闭名字为Centos6.5的虚拟机
+
+```ruby
+[root@kvm ~]# virsh destroy CentOS6.5
+```
+
+### 移除名字为CentOS6.5的虚拟机
+
+```ruby
+[root@kvm ~]# virsh undefine CentOS6.5
+```
+
+### 设置CentOS6.5虚拟机开机启动
+
+```ruby
+[root@kvm ~]# virsh autostart CentOS6.5
+```
+
+默认情况下virsh工具不能对linux虚拟机进行关机操作， linux操作系统需要开启与启动acpid服务。在安装KVM linux虚拟机必须配置此服务。
+
+```ruby
+# yum -y install acpid
+# /etc/init.d/acpid start
+```
+
+### 创建虚机
+
+```ruby
+virt-install \
+--name payment-mysql-1 \
+--ram 1024 \
+--disk path=/home/kvm/payment-mysql-1.qcow2,size=10 \
+--vcpus 1 \
+--os-type linux \
+--os-variant rhel7 \
+--network bridge=virbr0 \
+--graphics none \
+--console pty,target_type=serial \
+--location '/mnt/CentOS-7-x86_64-Everything-1708.iso' \
+--extra-args 'console=ttyS0,115200n8 serial'
+
+```
+
+### 通过配置文件启动虚拟机
+```ruby
+[root@kvm ~]# virsh create /etc/libvirt/qemu/CentOS6.5.xml
+```
+
+登录虚机后，发现网络不通。[参考此文](http://blog.csdn.net/dancheren/article/details/73611878)
+将 ifcfg-eth0 的ONBOOT=no修改为yes，
+```ruby
+systemctl restart NetworkManager  了
+```
+
+重启，网络就可以用
+
+修改时间;
+http://www.cnblogs.com/rwxwsblog/p/5799764.html
+
+#安装CentOS7后，登陆发现
+# 1.无线网卡没有启动
+# 2.启动后无法自动连接WiFi
+# 3.使用ip link set xxx up,wpa_xxx启动网卡连接WiFi后重新登陆无法自动启动连接WiFi
+
+##解决：
+## 1.设置NetworkManager自动启动
+: chkconfig NetworkManager on
+## 2.安装NetworkManager-wifi
+: yum -y install NetworkManager-wifi
+## 3.开启WiFi
+： nmcli r wifi on
+## 4.测试（扫描信号）
+： nmcli dev wifi
+## 5.连接
+： nmcli dev wifi connect password
