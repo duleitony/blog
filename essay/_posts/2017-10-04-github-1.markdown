@@ -63,19 +63,20 @@ Checking out files: 100% (233/233), done.
 以下以修改Readme文件为例，介绍如何建立分支来完成这个任务。 
 
 ```bash
+
 admin@admin-PC MINGW64 /d/workspace
 $ cd jigsaw-payment/
 
 admin@admin-PC MINGW64 /d/workspace/jigsaw-payment (master)
 $ git checkout -b update-readme
 Switched to a new branch 'update-readme'
-···
+```
 
 注意，必须确保是在jigsaw-payment这个工作目录下，之后在路径后会显示当前的分支。**/d/workspace/jigsaw-payment (master)**
 
 在为这个新功能增加文件后，我们只需要将修改提交到这个新分支上，然后切换回master分支:
 
-···bash
+```bash
 admin@admin-PC MINGW64 /d/workspace/jigsaw-payment (update-readme)
 $ git add .
 
@@ -88,11 +89,12 @@ admin@admin-PC MINGW64 /d/workspace/jigsaw-payment (update-readme)
 $ git checkout master
 Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
-···
+```
 
 在这里，我们需要将新分支推送到远程代码仓库里。首先，我们需要检查这个新功能的分支名称以及其在远程仓库的别名，然后我们用git push [git-remote-alias] [branch-name]推送这个变更。
 
-···bash
+
+```bash
 admin@admin-PC MINGW64 /d/workspace/jigsaw-payment (master)
 $ git branch
 * master
@@ -113,7 +115,7 @@ Total 3 (delta 2), reused 0 (delta 0)
 remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
 To github.com:shamphone/jigsaw-payment.git
  * [new branch]      update-readme -> update-readme
-···
+```
 
 
 进入我们fork的代码库的GitHub页面，选择为这个新功能建立的分支，然后点击Pull Request按钮：
