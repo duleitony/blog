@@ -47,7 +47,7 @@ sdb4是第一步确认的移动硬盘的盘符
 
 1.使用fdisk -l命令查看磁盘情况
 
-```ruby
+```Shell
 [root@localhost jigsaw]# fdisk -l
 
 磁盘 /dev/sda：1000.2 GB, 1000204886016 字节，1953525168 个扇区
@@ -69,7 +69,7 @@ I/O 大小(最小/最佳)：512 字节 / 512 字节
 
 2.使用mount命令挂载U盘，挂载位置为/mnt/udisk。若/mnt/udisk文件夹不存在，则新建
 
-```ruby
+```Shell
 [root@localhost jigsaw]# mkdir -p /mnt/udisk
 [root@localhost jigsaw]# ls /mnt
 cdrom  udisk
@@ -79,7 +79,7 @@ mkdir参数-p表示如文件夹已存在，则不新建，使用该文件夹
 
 3. 挂载U盘
 
-```ruby
+```Shell
 [root@localhost udisk]# mount -t ntfs-3g /dev/sdb4 /mnt/udisk/
 [root@localhost udisk]# ls /mnt/udisk/
 00Job  01Joy  02BigData  System Volume Information
@@ -89,7 +89,7 @@ mkdir参数-p表示如文件夹已存在，则不新建，使用该文件夹
 
 4.使用完U盘后，记得取消挂载，否则容易造成数据丢失
 
-```ruby
+```Shell
 [root@localhost udisk]# umount /mnt/udisk/
 ```
 
@@ -100,7 +100,7 @@ mkdir参数-p表示如文件夹已存在，则不新建，使用该文件夹
 1. 上传centos7光盘镜像到指定目录下（这里定为/usr/local/src）
 2. 挂载镜像文件
 
-```ruby
+```Shell
 mkdir /media/cdrom # 新建光盘目录；
 mount -t iso9660 -o loop /usr/local/src/CentOS-7.0-1406-x86_64-Everything.iso /media/cdrom/ #挂载镜像文件
 ```
@@ -109,31 +109,31 @@ mount -t iso9660 -o loop /usr/local/src/CentOS-7.0-1406-x86_64-Everything.iso /m
 
 编辑 /etc/fstab 文件
 
-```ruby
+```Shell
 vi /etc/fstab
 ```
 
 添加如下内容：
 
-```ruby
+```Shell
 /usr/local/src/CentOS-7.0-1406-x86_64-DVD.iso /media/cdrom/ iso9660 defaults,ro,loop 0 0
 ```
 
 保存并退出, 注：iso9660 CD-ROM光盘的标准文件系统
 
-```ruby
+```Shell
 mount -l
 ```
 
 4. 配置本地yum源文件；
 
-```ruby
+```Shell
 vim /etc/yum.repos.d/centos7-media.repo
 ```
 
 设置如下内容
 
-```ruby
+```Shell
 [centos7-media]
 name=Centos linux 7.0 # 自己定义
 baseurl=file:///media/cdrom # 本地镜像文件路径
@@ -155,7 +155,7 @@ yum –disablerepo=* –enablerepo=centos7-media install net-tools#使用镜像�
 那么如何关掉这个 virbr0 呢？
 我们可以先 net-destroy 然后 net-undefine，最后别忘了重启 libvirtd 让设置生效，这样就可以了。
 
-```ruby
+```Shell
 
 # virsh net-list
 Name                State      Autostart
@@ -172,14 +172,14 @@ Network default has been undefined
 ## KVM虚机管理
 
 **1. 显示正在运行的虚拟机**
-```ruby
+```Shell
 [root@kvm ~]# virsh list
  Id Name State
 ----------------------------------------------------
 ```
 
 **2. 显示所有虚拟机**
-```ruby
+```Shell
 [root@kvm ~]# virsh list --all
  Id Name State
 ----------------------------------------------------
@@ -190,44 +190,44 @@ Network default has been undefined
 
 **3. 启动名字为CentOS6.5的虚拟机**
 
-```ruby
+```Shell
 [root@kvm ~]# virsh start CentOS6.5
 ```
 
 **4. 关闭名字为CentOS6.5的虚拟机**
 
-```ruby
+```Shell
 [root@kvm ~]# virsh shutdown CentOS6.5
 ```
 
 **5. 强制关闭名字为Centos6.5的虚拟机**
 
-```ruby
+```Shell
 [root@kvm ~]# virsh destroy CentOS6.5
 ```
 
 **6. 移除名字为CentOS6.5的虚拟机**
 
-```ruby
+```Shell
 [root@kvm ~]# virsh undefine CentOS6.5
 ```
 
 **7. 设置CentOS6.5虚拟机开机启动**
 
-```ruby
+```Shell
 [root@kvm ~]# virsh autostart CentOS6.5
 ```
 
 默认情况下virsh工具不能对linux虚拟机进行关机操作， linux操作系统需要开启与启动acpid服务。在安装KVM linux虚拟机必须配置此服务。
 
-```ruby
+```Shell
 # yum -y install acpid
 # /etc/init.d/acpid start
 ```
 
 **8. 创建虚机**
 
-```ruby
+```Shell
 virt-install \
 --name payment-mysql-1 \
 --ram 1024 \
@@ -244,7 +244,7 @@ virt-install \
 ```
 
 **9. 通过配置文件启动虚拟机**
-```ruby
+```Shell
 [root@kvm ~]# virsh create /etc/libvirt/qemu/CentOS6.5.xml
 ```
 
@@ -255,11 +255,11 @@ virt-install \
 [参考此文](http://blog.csdn.net/dancheren/article/details/73611878)
 将 ifcfg-eth0 的ONBOOT=no修改为yes，
 
-```ruby
-systemctl restart NetworkManager  了
+```Shell
+systemctl restart NetworkManager 
 ```
 
-重启，网络就可以用
+重启，网络就可以用了
 
 **2. 修改虚机时间**
 
@@ -273,25 +273,25 @@ systemctl restart NetworkManager  了
 解决：  
 
 1.设置NetworkManager自动启动
-```ruby
+```Shell
 chkconfig NetworkManager on
 ```
 
 2.安装NetworkManager-wifi
-```ruby
+```Shell
 yum -y install NetworkManager-wifi
 ```
 
 3.开启WiFi
-```ruby
+```Shell
 nmcli r wifi on
 ```
 
 4.测试（扫描信号）
-```ruby
+```Shell
 nmcli dev wifi
 ```
 5.连接
-```ruby
+```Shell
 nmcli dev wifi connect password
 ```
