@@ -28,15 +28,15 @@ Linux的开源操作系统，可以选择Ubuntu， Centos等。 这里以Centos�
 3. 回到安装选择界面，此时移动鼠标选择“Install CentOS 7”，然后按下Tab键，在屏幕下方会出现vmlinuz的配置信息。
 4. 修改该信息
 
-```HTML
+
 initrd=initrd.imginst.stage2=<strong>hd:LABEL=CentOS\x207\x20x86_64 rd.live.check</strong> quiet
-```
+
 
 改为：
 
-```HTML
+
 vmlinuz initrd=initrd.img inst.stage2=<strong>hd:/dev/sdb4</strong> quite
-```
+
 
 sdb4是第一步确认的移动硬盘的盘符
 
